@@ -6,6 +6,8 @@
         
     </head>
     <body>
-        
+        <%
+        out.print("apple");
+        %>
     </body>
 </html>
