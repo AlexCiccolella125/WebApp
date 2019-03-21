@@ -20,8 +20,8 @@
 <%
 
 	DBUtil util = new DBUtil();
-String empid = request.getParameter("");
-Employee emp = util.getEmpById(empid);
+	String empid = request.getParameter("");
+	Employee emp = util.getEmpById(empid);
 
 if(emp != null){
 		out.print("<h1>Employee information </h1>");
