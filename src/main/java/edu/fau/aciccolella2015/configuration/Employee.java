@@ -14,12 +14,12 @@ public class Employee {
 	}
 	
 	public Employee(String ID, String Name, String LastName, String Email, Double Salary, int DepID){	
-		String empId = ID;
-		String firstname = Name;
-		String  lastname = LastName;
-		String email = Email;
-		Double salary = Salary;
-		int depId = DepID;
+		setEmpId(ID);
+		setFirstname(Name);
+		setLastname(LastName);
+		setEmail(Email);
+		setSalary(Salary);
+		setdepId(DepID);
 	}
 	
 	

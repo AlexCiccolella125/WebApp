@@ -21,19 +21,20 @@
 
 	DBUtil db = new DBUtil();
 	String ID = request.getParameter("txtID");
-	String name = request.getParameter("txtName");
-	String lastname = request.getParameter("txtLastName");
-	String email = request.getParameter("txtEmail");
-	Double salary = Double.parseDouble(request.getParameter("txtSalary"));
-	Integer DepId = Integer.parseInt(request.getParameter("txtDepId"));
+	String name = request.getParameter("txtname");
+	String lastname = request.getParameter("txtlastname");
+	String email = request.getParameter("txtemail");
+	Double salary = Double.parseDouble(request.getParameter("txtsalary"));
+	Integer DepId = Integer.parseInt(request.getParameter("txtdepid"));
 	Employee e = new Employee(ID, name, lastname, email, salary, DepId);
+	
 	
 	boolean didSave = db.createEmployee(e);
 	if (didSave){
 		out.print("<h2>Employee created!</h2>");
-		out.print("<h2>Employee ID: " + e.getId() + "</h2>");
-		out.print("<h2>Employee Name: " + e.getFirstName() + " " + e.getLastName() + "</h2>");
-		out.print("<h2>Employee DepId: " + e.getDeptId() + "</h2>" );
+		out.print("<h2>Employee ID: " + e.getEmpId() + "</h2>");
+		out.print("<h2>Employee Name: " + e.getFirstname() + " " + e.getLastname() + "</h2>");
+		out.print("<h2>Employee DepId: " + e.getdepId() + "</h2>" );
 	}
 	else {
 		out.print("<h2>Error creating Employee. Contact Helpdesk.</h2>");

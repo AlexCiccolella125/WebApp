@@ -18,7 +18,7 @@
 <body>
 
 <%
-
+/*
 	DBUtil util = new DBUtil();
 	String empid = request.getParameter("");
 	Employee emp = util.getEmpById(empid);
@@ -32,7 +32,7 @@ if(emp != null){
 else{
 	out.print("<h2>Employee not found</h2>");
 }
-
+*/
 
 %>
 	<h1>Employee Report</h1>
@@ -45,7 +45,7 @@ else{
 			<th>Salary</th>
 			<th>DepartmentId</th>
 	<%
-	/*
+	
 		DBUtil db = new DBUtil();
 		List<Employee> emp = db.getAllEmployees();
 	
@@ -59,7 +59,7 @@ else{
 			out.print("<td>" + emp.get(i).getdepId() + "</td>");
 			out.print("</tr>");
 		}
-		*/
+		
 	%>
 
 </table>
