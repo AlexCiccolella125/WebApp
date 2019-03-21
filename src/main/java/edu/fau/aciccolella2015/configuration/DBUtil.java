@@ -13,6 +13,24 @@ import edu.fau.aciccolella2015.configuration.JDBCConfig;
 
 public class DBUtil {
 	
+	public boolean createEmployee(Employee emp) throws ClassNotFoundException, SQLException {
+		boolean didSave = false;
+		String sql = "insert into EMP values (?,?,?,?,?,?)";
+		JDBCConfig db = new JDBCConfig();
+		Connection connection = db.getConnection();
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, emp.getEmpId());
+		ps.setString(2, emp.getFirstname());
+		ps.setString(3, emp.getLastname());
+		ps.setString(4, emp.getEmail());
+		ps.setDouble(5, emp.getSalary());
+		ps.setInt(6, emp.getdepId());
+		int count = ps.executeUpdate();
+		if(count >0){
+			didSave = true;
+		}
+		return didSave;
+	}
 	
 	public Employee getEmpById(String id) throws ClassNotFoundException, SQLException {
 		Employee emp = null;
