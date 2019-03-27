@@ -6,11 +6,20 @@ public class Employee {
 	String firstname = null;
 	String  lastname = null;
 	String email = null;
-	Double Salary = 0.0;
+	Double salary = 0.0;
 	int depId = 0;
 	
 	//Default Constructor
-	Employee(){	
+	public Employee(){	
+	}
+	
+	public Employee(String ID, String Name, String LastName, String Email, Double Salary, int DepID){	
+		setEmpId(ID);
+		setFirstname(Name);
+		setLastname(LastName);
+		setEmail(Email);
+		setSalary(Salary);
+		setdepId(DepID);
 	}
 	
 	
@@ -25,7 +34,7 @@ public class Employee {
 		System.out.print(" ");
 		System.out.print(email);
 		System.out.print(" ");
-		System.out.print(Salary);
+		System.out.print(salary);
 		System.out.print(" ");
 		System.out.println(depId);
 	}
@@ -58,10 +67,10 @@ public class Employee {
 		this.email = email;
 	}
 	public Double getSalary() {
-		return Salary;
+		return salary;
 	}
 	public void setSalary(Double salary) {
-		this.Salary = salary;
+		this.salary = salary;
 	}
 	public int getdepId() {
 		return depId;
