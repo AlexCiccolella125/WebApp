@@ -3,6 +3,8 @@ import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import edu.fau.otoledo.week11.model.Employee;
+
 public abstract class BaseService<T> {
 	
 	protected JdbcTemplate jdbcTemplate;
@@ -13,7 +15,9 @@ public abstract class BaseService<T> {
 	public abstract List<T> getAll();
 	public abstract List<T> getByName(String name);
 	
-	public abstract T getById();
+	public abstract T getById(int id);
 	
 	public abstract boolean create(T t);
+
+	
 }

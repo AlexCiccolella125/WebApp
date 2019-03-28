@@ -29,15 +29,23 @@ public class EmployeeService extends BaseService<Employee>{
 	}
 
 	@Override
-	public Employee getById() {
-		// TODO Auto-generated method stub
-		return null;
+	public Employee getById(int id) {
+		String sql = "select * from EMPLOYEE where empId = ?";
+		return jdbcTemplate.queryForObject(sql, new Object[]{id}, new EmployeeMapper());
 	}
 
 	@Override
-	public boolean create(Employee t) {
+	public boolean create(Employee e) {
+		String sql = "insert into EMPLOYEE (empId, firstname, lastname, email, salary, depId)"
+	+				"values (?,?,?,?,?,?)";
+		return jdbcTemplate.update(sql, e.getId(), e.getFirstName(), e.getLastName(),e.getEmail(),e.getSalary(),e.getDeptId()) > 0;
+	}
+
+	public boolean update(Employee emp) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	
 
 }
