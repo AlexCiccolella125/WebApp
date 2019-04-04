@@ -7,13 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="JSPFiles\validate.jsp" method ="post">
-	    Username: <input type="text" name="username">
-	    <br>
-	    Password: <input type="password" name="password">
-	    <br><br>
-	    <input type="submit" value="Login">
-	</form>
+<%session.invalidate(); %>
+<jsp:forward page="../index.jsp"/>
 
 </body>
 </html>
