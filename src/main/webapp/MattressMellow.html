@@ -19,7 +19,7 @@
         }
          #backgroundcolor{
              position: absolute;
-         background: url(Images/cute.jpg) ; 
+         background: url(cute.jpg) ; 
              
         height: 200%;
             width: 100%;
@@ -103,32 +103,94 @@ body {
             height:40%;
             width:40%;
         }
+        /* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
        
     </style>
 <body>
     <div id="backgroundcolor">
     <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  <a class="#active" href="Login.html">Home</a>
+        <div class="dropdown">
+    <button class="dropbtn">Products 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="MattressMellow.html">Mellow Mattress</a>
+      <a href="MemoryMat.html">Memory Mattress</a>
+      <a href="ProductSelection.html">Perfect Pillow Set</a>
+        <a href="SoftPillows.html">Lounge Pillow Set</a>
+    </div>
+  </div> 
+  <a href="Contact.html">Contact</a>
+  <a href="DownloadPage.html">My Cart</a>
 </div>
     <div class= "container">
 <div id="Title">
-   Mellow Mattress
+   Mellow Mattress <br> 99.99
     </div>
 <div class="row">
   <div class="column">
-    <div class="card"><img  src="Images/metallic1.png" id="Pil"></div>
+    <div class="card"><img  src="MellowMat/CM-Glacier-Bay-2-QPLM_9eddc376-559c-4cbd-9b2d-c1dc41c5d7ab_700x.jpg" id="Pil"></div>
   </div>
   <div class="column">
-    <div class="card"><img  src="Images/metallic2.jpg" id="Pil"></div>
+    <div class="card"><img  src="MellowMat/Product_IMG_1_Aireloom_Joshua_QPETM_700x.jpg" id="Pil"></div>
   </div>
   <div class="column">
-    <div class="card"><img  src="Images/metallic3.png" id="Pil"></div>
+    <div class="card"><img  src="MellowMat/Simmons-Calista-QXFM_cf670c2f-1234-4a58-9980-a68b155926bc_700x.jpg" id="Pil"></div>
   </div>
   <div class="column">
-    <div class="card"><img  src="Images/metallic4.png" id="Pil"></div>
+    <div class="card"><img  src="MellowMat/Tempur-Pedic-Cloud-Supreme-Breeze-QCPM_6373b442-95b9-49a8-8f2a-37e0fd70f9ab_700x.jpg" id="Pil"></div>
   </div>
 </div>
       <div id="submit">
