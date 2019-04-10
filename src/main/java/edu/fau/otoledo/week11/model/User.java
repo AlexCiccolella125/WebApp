@@ -1,33 +1,49 @@
 package edu.fau.otoledo.week11.model;
 
 public class User {
-	private int userId;
-	private String fisrtName;
+	
+	private String userId;
+	private String FirstName;
 	private String lastName;
 	private String email;
-	private String password;
-	private String mobile;
-	private String address1;
 	private String username;
+	private String password;
+	private String shipID;
+	private String billID;
+	private boolean adminStatus;
+	private int phone;
 	
 	public User(){
-		
 	}
-
-	public int getUserId() {
+	
+	public User(String userId, String firstName, String lastName, String email, String username, String password,
+			String shipID, String billID, boolean adminStatus, int phone) {
+		super();
+		this.userId = userId;
+		FirstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.shipID = shipID;
+		this.billID = billID;
+		this.adminStatus = adminStatus;
+		this.phone = phone;
+	}
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
 	public String getFisrtName() {
-		return fisrtName;
+		return FirstName;
 	}
 
 	public void setFisrtName(String fisrtName) {
-		this.fisrtName = fisrtName;
+		this.FirstName = fisrtName;
 	}
 
 	public String getLastName() {
@@ -54,20 +70,12 @@ public class User {
 		this.password = password;
 	}
 
-	public String getMobile() {
-		return mobile;
+	public int getMobile() {
+		return phone;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-	public String getAddress1() {
-		return address1;
-	}
-
-	public void setAddress1(String address1) {
-		this.address1 = address1;
+	public void setMobile(int phone) {
+		this.phone = phone;
 	}
 
 	public String getUsername() {
@@ -76,6 +84,30 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getShipID() {
+		return shipID;
+	}
+
+	public void setShipID(String shipID) {
+		this.shipID = shipID;
+	}
+
+	public String getBillID() {
+		return billID;
+	}
+
+	public void setBillID(String billID) {
+		this.billID = billID;
+	}
+
+	public boolean isAdminStatus() {
+		return adminStatus;
+	}
+
+	public void setAdminStatus(boolean adminStatus) {
+		this.adminStatus = adminStatus;
 	}
 	
 
