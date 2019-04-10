@@ -51,19 +51,17 @@
 </style>
 
 </head>
-
+<body>
 <%
 //Authentication
 	Integer uid = (Integer)session.getAttribute("sessionID");
 	if(uid == null){
 		%>
-			<jsp:forward page="index.jsp"/>
+			<jsp:forward page="../index.jsp"/>
 		<%
 	}//END AUTHENTICATION
 	User user = DBUtil.getUserById(uid);	
 %>
-
-<body>
 	<ul>
   		<li><a href="Home.jsp">Home</a></li>
 		<li style="float:right"><a class="active" href="logout.jsp">Logout</a></li>

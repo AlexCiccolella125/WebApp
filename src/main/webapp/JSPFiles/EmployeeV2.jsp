@@ -54,6 +54,16 @@
 </style>
 </head>
 <body>
+<%
+//Authentication
+	Integer uid = (Integer)session.getAttribute("sessionID");
+	if(uid == null){
+		%>
+			<jsp:forward page="../index.jsp"/>
+		<%
+	}//END AUTHENTICATION
+	User user = DBUtil.getUserById(uid);	
+%>
 	<%
 		List<Employee> empList = DBUtil.getAllEmp();
 		List<Department> deptList = DBUtil.getAllDep();

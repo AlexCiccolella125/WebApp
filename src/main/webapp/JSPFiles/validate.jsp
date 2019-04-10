@@ -23,7 +23,7 @@
 		}
 		else {
 			//IF THE USER IS NOT AUTHORIZED THEN AGAIN HE WILL BE REDIRECTED TO THE SAME LOGIN PAGE
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("../index.jsp");
 		}
 	%>
 
