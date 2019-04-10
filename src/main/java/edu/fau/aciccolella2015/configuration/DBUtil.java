@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.fau.aciccolella2015.configuration.Employee;
-import edu.fau.aciccolella2015.configuration.JDBCConfig;
+import edu.fau.group3.configuration.JDBCConfig;
 
 public class DBUtil {
 	

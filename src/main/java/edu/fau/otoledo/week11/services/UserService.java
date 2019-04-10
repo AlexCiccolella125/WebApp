@@ -15,7 +15,6 @@ public class UserService extends BaseService<User>{
 	@Autowired
 	public UserService(DataSource dataSource) {
 		super(dataSource);
-		
 	}
 
 	@Override
@@ -37,6 +36,4 @@ public class UserService extends BaseService<User>{
 		return jdbcTemplate.update(query, user.getUserId(), user.getFisrtName(), user.getLastName(), user.getEmail(), 
 				user.getPassword(), user.getMobile(), user.getAddress1(), user.getUsername())>0;
 	}
-
-
 }

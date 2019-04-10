@@ -25,5 +25,4 @@ public abstract class BaseService<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
