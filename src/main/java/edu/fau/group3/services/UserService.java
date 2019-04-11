@@ -19,7 +19,7 @@ public class UserService extends BaseService<User>{
 
 	@Override
 	public List<User> getAll() {
-		String query ="select * from user_info";
+		String query ="SELECT * from User";
 		return jdbcTemplate.query(query, new UserMapper());
 	}
 }
