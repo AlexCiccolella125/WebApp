@@ -1,9 +1,8 @@
-package edu.fau.otoledo.week11.model;
+package edu.fau.group3.model;
 
 public class User {
-	
-	private String userId;
-	private String FirstName;
+	private int userId;
+	private String firstName;
 	private String lastName;
 	private String email;
 	private String username;
@@ -16,11 +15,11 @@ public class User {
 	public User(){
 	}
 	
-	public User(String userId, String firstName, String lastName, String email, String username, String password,
+	public User(int userId, String firstName, String lastName, String email, String username, String password,
 			String shipID, String billID, boolean adminStatus, int phone) {
 		super();
 		this.userId = userId;
-		FirstName = firstName;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.username = username;
@@ -30,20 +29,20 @@ public class User {
 		this.adminStatus = adminStatus;
 		this.phone = phone;
 	}
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	public String getFisrtName() {
-		return FirstName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFisrtName(String fisrtName) {
-		this.FirstName = fisrtName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -70,11 +69,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getMobile() {
+	public int getPhone() {
 		return phone;
 	}
 
-	public void setMobile(int phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
 	}
 

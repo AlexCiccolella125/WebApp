@@ -7,7 +7,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import edu.fau.otoledo.week11.model.User;
+import edu.fau.group3.model.User;
 
 @Component
 public class UserService extends BaseService<User>{

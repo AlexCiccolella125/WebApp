@@ -4,12 +4,12 @@ import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.dao.DuplicateKeyException;
 
+import edu.fau.group3.model.User;
 import edu.fau.otoledo.week11.configuration.SpringJdbcConfig;
 import edu.fau.otoledo.week11.model.Department;
 import edu.fau.otoledo.week11.model.Employee;
 import edu.fau.otoledo.week11.services.DepartmentService;
 import edu.fau.otoledo.week11.services.EmployeeService;
-import edu.fau.otoledo.week11.model.User;
 import edu.fau.otoledo.week11.services.UserService;
 
 
