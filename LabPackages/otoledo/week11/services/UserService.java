@@ -7,7 +7,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import edu.fau.otoledo.week11.model.User;
+import edu.fau.group3.model.User;
 
 @Component
 public class UserService extends BaseService<User>{
@@ -15,7 +15,6 @@ public class UserService extends BaseService<User>{
 	@Autowired
 	public UserService(DataSource dataSource) {
 		super(dataSource);
-		
 	}
 
 	@Override
@@ -32,11 +31,9 @@ public class UserService extends BaseService<User>{
 
 	@Override
 	public boolean create(User user) {
-		String query ="insert into user_info (userId, firstName, lastName, email, password, mobile, address1, username) "
+		String query ="insert into user_info (userId, firstName, lastName, email, username, password, shipID, billID, adminStatus, phone) "
 				+ "values(?, ?, ?, ?, ?, ?, ?, ?)";
 		return jdbcTemplate.update(query, user.getUserId(), user.getFisrtName(), user.getLastName(), user.getEmail(), 
-				user.getPassword(), user.getMobile(), user.getAddress1(), user.getUsername())>0;
+				user.getPassword(), user.getMobile(), user.getShipID(), user.getUsername())>0;
 	}
-
-
 }

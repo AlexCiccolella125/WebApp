@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import edu.fau.otoledo.week11.model.User;
+import edu.fau.group3.model.User;
 
 public class UserMapper implements RowMapper<User>{
 

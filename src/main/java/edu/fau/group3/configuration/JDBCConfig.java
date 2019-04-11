@@ -1,4 +1,4 @@
-package edu.fau.aciccolella2015.configuration;
+package edu.fau.group3.configuration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
