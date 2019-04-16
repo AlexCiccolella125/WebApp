@@ -1,7 +1,7 @@
 package edu.fau.group3.model;
 
 public class User {
-	private String userId;
+	private int userId;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -15,7 +15,7 @@ public class User {
 	public User(){
 	}
 	
-	public User(String userId, String firstName, String lastName, String email, String username, String password,
+	public User(int userId, String firstName, String lastName, String email, String username, String password,
 			String shipID, String billID, boolean adminStatus, int phone) {
 		super();
 		this.userId = userId;
@@ -29,11 +29,11 @@ public class User {
 		this.adminStatus = adminStatus;
 		this.phone = phone;
 	}
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
