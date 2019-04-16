@@ -20,17 +20,17 @@ public class DBUtil {
 		return USER_SERVICE.getAll();
 	}
 	
-	/*public static User getUserById(int id){
+	public static User getUserById(int id){
 		return USER_SERVICE.getById(id);
-	}*/
+	}
 	
-	public static int checkUsernameAndPassword(String username, String password){
+	public static int checkEmailAndPassword(String email, String password){
 		List<User> userList = USER_SERVICE.getAll();
 		
 		for	(int i = 0 ; i < userList.size() ; i++){
-			if (userList.get(i).getUsername().equals(username)){
+			if (userList.get(i).getEmail().equals(email)){
 				if (userList.get(i).getPassword().equals(password)){
-					//return userList.get(i).getUserId();
+					return userList.get(i).getUserId();
 				}
 				break;
 			}

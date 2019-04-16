@@ -11,16 +11,15 @@ public class UserMapper implements RowMapper<User>{
 
 	public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 		User user = new User();
-		user.setUserId(rs.getString("UserID"));
+		user.setUserId(rs.getInt("UserID"));
 		user.setFirstName(rs.getString("UserFirstName"));
 		user.setLastName(rs.getString("UserLastName"));
 		user.setEmail(rs.getString("UserEmail"));
 		user.setPassword(rs.getString("UserPassword"));
-		user.setPhone(rs.getInt("Phone"));
+		user.setPhone(rs.getInt("UserPhone"));
 		user.setShipID(rs.getString("UserShipID"));
 		user.setBillID(rs.getString("UserBillID"));
 		user.setAdminStatus(rs.getBoolean("UserAdmin"));
-		user.setUsername(rs.getString("UserName"));
 		return user;
 	}
 }
