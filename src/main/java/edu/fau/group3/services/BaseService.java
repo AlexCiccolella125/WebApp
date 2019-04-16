@@ -6,6 +6,8 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import edu.fau.group3.model.User;
+
 
 public abstract class BaseService<T> {
 
@@ -22,4 +24,6 @@ public abstract class BaseService<T> {
 	public abstract List<T> getByName(String name);
 	
 	public abstract boolean create(T t);
+
+	public abstract boolean update(T t);
 }

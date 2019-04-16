@@ -101,7 +101,7 @@ public class User {
 		this.billID = billID;
 	}
 
-	public boolean isAdminStatus() {
+	public boolean getAdminStatus() {
 		return adminStatus;
 	}
 
