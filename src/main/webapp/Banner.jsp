@@ -1,45 +1,13 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Banner</title>
 </head>
-    <style>
-        #container{
-            position: center;
-        }
-        #background{
-           background: url(cute.jpg) ; 
-        height: 100%;
-            width: 100%;
-            
-        }
-       
-        fieldset{
-            margin: 30px;
-            width: 500px;
-            opacity: 0.8;
-            filter:alpha(opacity=80);
-           background-color: white;
-            float:right;
-            margin-right: 35%;
-            margin-top: 15%;
-        }
-        #login{
-            text-align: center;
-            font-family:fantasy;
-            font-style: oblique;
-            font-size: 50px;
-        
-        }
-        #Info{
-            text-align: center;
-        }
-        #UP{
-            text-align: center;
-            font-size: 15px;
-        }
-        .topnav {
+<style>
+.topnav {
   background-color: #333;
   overflow: hidden;
 }
@@ -121,9 +89,9 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
-    </style>
-<body >
-    <div class="topnav">
+</style>
+<body>
+<div class="topnav">
   <a class="#active" href="Login.html">Home</a>
         <div class="dropdown">
     <button class="dropbtn">Products 
@@ -138,20 +106,6 @@
   </div> 
   <a href="Contact.html">Contact</a>
   <a href="DownloadPage.html">My Cart</a>
-</div>
-    <div id = "background">
-
-<fieldset>
-    <div id= "containter">
-		<form>
-		    <h1 id="login"> Login</h1>
-		    <h4 id="Info">Welcome back! Login to access our files. Did you forget your <a>password</a>?</h4>
-			<h5 id="UP">UserName: <input type="txt" value="" name="UserName"></h5> 
-			<h5 id="UP">Password: <input type="txt" value="" name="Password"></h5>
-		  <input id= "button" type="Submit" Value="Submit">  
-		</form>
-    </div>
-</fieldset>
 </div>
 </body>
 </html>
