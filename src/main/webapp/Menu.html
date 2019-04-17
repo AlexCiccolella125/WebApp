@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+<title>TODO supply a title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+ul {
+	list-style-type: none;
+}
+
+li a {
+	border: 3px solid #cfc1d5;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	width: 20%;
+	background-color: #dddde4;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	font-weight: bold;
+	font-family: fantasy;
+}
+
+li a:hover {
+	background-color: #e5acac;
+	color: white;
+}
+</style>
+
+</head>
+<body>
+	<h1>FAU Administrative System</h1>
+	<div id="menu">
+		<ul>
+			<li><a href="Students.jsp">Students Report</a></li>
+			<li><a href="StudentDetail.jsp">Detailed Students Report</a></li>
+			<li><a>
+			<form action= "SearchStudent.jsp" method="post">
+						Search Student by Last Name:<input type="text" name="LastName">
+						<input id = "button"type="submit" name = "search" value = "Search">					
+			</form></a></li>
+			<li><a href="Create.jsp">Create a Student</a></li>
+			<li><a href="Contact.jsp">Contact us</a></li>
+
+		</ul>
+
+	</div>
+</body>
+</html>

@@ -3,11 +3,10 @@
 Integer uid = (Integer)session.getAttribute("sessionID");
 if (uid == null) {
 %>
-<jsp:forward page="index.jsp"/>
+<!-- <jsp:forward page="index.jsp"/> -->
 <%
-}// END AUTHENTICATION
 
-// User user = DBUtil.getUserById(uid);
+}// END AUTHENTICATION
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -20,50 +19,15 @@ if (uid == null) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<style type="text/css">
-	a {
-		text-decoration: none;
-		
-	}
-	label {
-		display: inline-block;
-		width: 100px;
-	}
-	div {
-		padding:5px;
-	}	
-	
-	ul {
-	  list-style-type: none;
-	  margin: 0;
-	  padding: 0;
-	  overflow: hidden;
-	  background-color: #333;
-	}
-	
-	li {
-	  float: left;
-	}
-	
-	li a {
-	  display: block;
-	  color: white;
-	  text-align: center;
-	  padding: 14px 16px;
-	  text-decoration: none;
-	}
-	
-	li a:hover:not(.active) {
-	  background-color: #111;
-	}
-	
-	.active {
-	  background-color: #4CAF50;
-}
-</style>
-
+<%-- calling the css --%>
+<link rel="stylesheet" href="Login.css">
 </head>
+
 <body>
+	<%
+	User user = DBUtil.getUserById(uid);
+	out.print(uid);
+	%>
 	<ul>
   		<li><a href="Home.jsp">Home</a></li>
 		<li style="float:right"><a class="active" href="#about">Logout</a></li>

@@ -7,6 +7,18 @@
 <link href="../css/BackgroundCSS.css" rel="stylesheet" type="text/css">
 </head>
     <body>
+    <%
+    for (int i=0; i < DButil.getAllCollection().getLength; i++)
+%>
+<div>
+<%
+
+ out.print(collection[i].name);%>
+<img src= <% collection.getThumbnail %> 
+>
+    </div>
+    %>
+    
         <div class="split left">
             <img src="pillow.jpg" alt="Pillows" class="pillow">
             <div class= "centered">
