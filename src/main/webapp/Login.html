@@ -1,127 +1,4 @@
-
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Login</title>
-</head>
-    <style>
-        #container{
-            position: center;
-        }
-        #background{
-           background: url(cute.jpg) ; 
-        height: 100%;
-            width: 100%;
-            
-        }
-       
-        fieldset{
-            margin: 30px;
-            width: 500px;
-            opacity: 0.8;
-            filter:alpha(opacity=80);
-           background-color: white;
-            float:right;
-            margin-right: 35%;
-            margin-top: 15%;
-        }
-        #login{
-            text-align: center;
-            font-family:fantasy;
-            font-style: oblique;
-            font-size: 50px;
-        
-        }
-        #Info{
-            text-align: center;
-        }
-        #UP{
-            text-align: center;
-            font-size: 15px;
-        }
-        .topnav {
-  background-color: #333;
-  overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-        #button{
-            text-align: center;
-        }
-/* The dropdown container */
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px; 
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
-}
-
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-    </style>
 <body >
     <div class="topnav">
   <a class="#active" href="Login.html">Home</a>
@@ -139,19 +16,18 @@
   <a href="Contact.html">Contact</a>
   <a href="DownloadPage.html">My Cart</a>
 </div>
-    <div id = "background">
-
-<fieldset>
-    <div id= "containter">
-		<form>
-		    <h1 id="login"> Login</h1>
-		    <h4 id="Info">Welcome back! Login to access our files. Did you forget your <a>password</a>?</h4>
-			<h5 id="UP">UserName: <input type="txt" value="" name="UserName"></h5> 
-			<h5 id="UP">Password: <input type="txt" value="" name="Password"></h5>
-		  <input id= "button" type="Submit" Value="Submit">  
-		</form>
-    </div>
-</fieldset>
+  <div id = "background">
+	<fieldset>
+	    <div id= "container">
+			<form action="validate.jsp" method ="post">
+			    <h1 id="login"> Login</h1>
+			    <h4 id="Info">Welcome back! Login to access our files. Did you forget your <a>password</a>?</h4>
+				<h5 id="UP">Email: <input type="txt" value="" name="email"></h5> 
+				<h5 id="UP">Password: <input type="txt" value="" name="password"></h5>
+			  <input id= "button" type="Submit" Value="Login">  
+			</form>
+	    </div>
+	</fieldset>
 </div>
 </body>
 </html>

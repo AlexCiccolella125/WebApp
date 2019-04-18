@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Product Selection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <style>
 #Title {
@@ -164,23 +166,9 @@ body {
 }
 </style>
 <body>
+	<%@include file="Banner.jsp" %>
 	<div id="backgroundcolor">
-		<div class="topnav">
-			<a class="#active" href="Login.html">Home</a>
-			<div class="dropdown">
-				<button class="dropbtn">
-					Products <i class="fa fa-caret-down"></i>
-				</button>
-				<div class="dropdown-content">
-					<a href="MattressMellow.html">Mellow Mattress</a> <a
-						href="MemoryMat.html">Memory Mattress</a> <a
-						href="ProductSelection.html">Perfect Pillow Set</a> <a
-						href="SoftPillows.html">Lounge Pillow Set</a>
-				</div>
-			</div>
-			<a href="Contact.html">Contact</a> <a href="DownloadPage.html">My
-				Cart</a>
-		</div>
+		
 		<div class="container">
 			<div id="Title">
 				Perfect Pillow Set <br> 30.99

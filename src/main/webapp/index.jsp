@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-    
-    import = "edu.fau.group3.util.DBUtil"
-    import = "edu.fau.group3.model.User"
-    import = "java.util.List"
-    
-    %>
+	pageEncoding="ISO-8859-1" 
+	import="edu.fau.group3.util.DBUtil"
+	import="edu.fau.group3.model.User" 
+	import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -16,29 +13,25 @@
 <link rel="stylesheet" href="Login.css">
 </head>
 <body>
-
-<div id = "background">
-	<fieldset>
-	    <div id= "container">
-			<form action="validate.jsp" method ="post">
-			    <h1 id="login"> Login</h1>
-			    <h4 id="Info">Welcome back! Login to access our files. Did you forget your <a>password</a>?</h4>
-				<h5 id="UP">Email: <input type="txt" value="" name="email"></h5> 
-				<h5 id="UP">Password: <input type="txt" value="" name="password"></h5>
-			  <input id= "button" type="Submit" Value="Login">  
-			</form>
-	    </div>
-	</fieldset>
-</div>
-
-<%-- This here is how you comment in jsp
-	I have this commented out as an example of calling to the database
-	DBUtil db = new DBUtil();
-	List<User> users = db.getAllUsers();
-	for(int i = 0; i < users.size(); i++){
-		out.print("<tr>");
-		out.print("<td>" + users.get(i).getFirstName() + "</td>");
-		out.print("</tr><br>");
-	}v --%>
+	<jsp:include page="Banner.jsp" />
+	<div id="background">
+		<fieldset>
+			<div id="container">
+				<form action="validate.jsp" method="post">
+					<h1 id="login">Login</h1>
+					<h4 id="Info">
+						Welcome back! Login to access our files. Did you forget your <a>password</a>?
+					</h4>
+					<h5 id="UP">
+						Email: <input type="txt" value="" name="email">
+					</h5>
+					<h5 id="UP">
+						Password: <input type="txt" value="" name="password">
+					</h5>
+					<input id="button" type="Submit" Value="Login">
+				</form>
+			</div>
+		</fieldset>
+	</div>
 </body>
 </html>
