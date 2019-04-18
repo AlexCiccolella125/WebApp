@@ -16,6 +16,7 @@
     List<Collection> Collections = DBUtil.getAllCollections();
     for (int i=0; i < Collections.size(); i++){
     %>
+
 		<div class="image">
 		<img src="<%out.print(Collections.get(i).getCollectionThumbnail()); %>" class="pillow" style="width: 100%">
         <div class= "centered">
