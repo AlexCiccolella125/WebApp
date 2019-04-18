@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+String ProductName = request.getParameter("ProductName");
+String ProductPrice = request.getParameter("ProductPrice");
+String ProductID = request.getParameter("ProductID");
+String ProductDescr = request.getParameter("ProductDescr");
+String ProductSKU = request.getParameter("ProductSKU");
+String ProductInven = request.getParameter("ProductInven");
+String ImgListID = request.getParameter("ImgListID");
+String CollectID = request.getParameter("CollectID");
 
+%>
 </body>
 </html>
