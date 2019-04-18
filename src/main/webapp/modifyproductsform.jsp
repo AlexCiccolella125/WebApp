@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form>
+<% out.println(); %> Name:<input type="text" value="">
+<% out.println(); %> Price:<input type="text" value="">
+<% out.println(); %> Description:<input type="text" value="">
+<% out.println(); %> SKU:<input type="text" value="">
+<% out.println(); %> Inventory: <input type="text" value="">
 
+</form>
+<input type="button" value="submit">
+<input type="button" value="delete">
 </body>
 </html>
