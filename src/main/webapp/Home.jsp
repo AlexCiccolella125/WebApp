@@ -4,10 +4,7 @@ Integer uid = (Integer)session.getAttribute("sessionID");
 if (uid == null) {
 %>
 <!-- <jsp:forward page="index.jsp"/> -->
-<%
-
-}// END AUTHENTICATION
-%>
+<% }//END AUTHENTICATION %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
