@@ -8,36 +8,20 @@
 <html>
 <head>
 <title>Pillow Talk</title>
-<link href="../css/BackgroundCSS.css" rel="stylesheet" type="text/css">
-	<link href="Login.css" rel="stylesheet" type="text/css">
+<link href="ImageDisplay.css" rel="stylesheet" type="text/css">
 </head>
     <body>
-    <%@include file="Banner.jsp" %>
-    <br>
+    <jsp:include page="Banner.jsp" />
     <%
     List<Collection> Collections = DBUtil.getAllCollections();
     for (int i=0; i < Collections.size(); i++){
     %>
-	<div>
-	<% 
-	out.print("<p>" + Collections.get(i).getCollectionName() + "<p>");
-	out.print("<p>" + Collections.get(i).getCollectionID() + "<p>");
-	out.print(Collections.get(i).getCollectionThumbnail());%>
-	<img src= "<%Collections.get(i).getCollectionThumbnail(); %>">
-	</div>
-    <%} %>
-        <div class="split left">
-            <img src="pillow.jpg" alt="Pillows" class="pillow">
-            <div class= "centered">
-                <h1>Pillows</h1>
-            </div>
-        </div>
 
-        <div class="split right">
-            <img src="newmattress.jpg" alt="Mattress" class="mattress">
-            <div class= "centered">
-                <h1>Mattresses</h1>	
-            </div>
-        </div>
-</body>
+		<div class="image">
+		<img src="<%out.print(Collections.get(i).getCollectionThumbnail()); %>" class="pillow" style="width: 100%">
+        <div class= "centered">
+                    <h1 id= "lo"><%out.print("<p>" + Collections.get(i).getCollectionName() + "<p>"); %></h1><br /><br /><br /><br />
+                </div>        
+	<%}%>
+	</body>
 </html>
