@@ -1,13 +1,63 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Banner</title>
-</head>
 <style>
-.topnav {
+            .header {
+                text-align: center;
+                font-style: oblique;   
+            }
+
+            img {
+                text-align: center;
+                display: block;
+                width: auto;
+                height: 50%;
+                margin: auto;
+                opacity: 0.6;
+                filter: alpha(opacity=60);
+
+            }
+
+            img:hover {
+                opacity: 1.0;
+                filter: alpha(opacity=100);
+            }
+
+            .image {
+                position: relative;
+                float: left;
+                width: 40%;
+                padding: 60px;
+                vertical-align: middle; 
+            }
+
+            .image h1, h2{
+                color: black;
+                position: absolute;
+                text-align: inherit;
+                width: 100%;
+            }
+
+            .row {
+                text-align: center;
+                display: table;
+            }
+            .centered {
+                position: absolute;
+                top: 33%;
+                left: 37%;
+                width: 25%;
+            }
+            #Ol{
+                font-family: fantasy;
+                font-size: 50px;
+                color:white;
+            }
+            #lo{
+                color:White;
+            }
+            #background{
+             background-color:black;
+            }
+             
+            .topnav {
   background-color: #333;
   overflow: hidden;
 }
@@ -89,23 +139,5 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 </style>
-<body>
-<div class="topnav">
-  <a class="#active" href="Login.html">Home</a>
-        <div class="dropdown">
-    <button class="dropbtn">Products 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="MattressMellow.html">Mellow Mattress</a>
-      <a href="MemoryMat.html">Memory Mattress</a>
-      <a href="ProductSelection.html">Perfect Pillow Set</a>
-        <a href="SoftPillows.html">Lounge Pillow Set</a>
-    </div>
-  </div> 
-  <a href="Contact.html">Contact</a>
-  <a href="DownloadPage.html">My Cart</a>
-</div>
-</body>
-</html>
