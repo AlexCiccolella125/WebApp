@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import = "edu.fau.group3.util.DBUtil"
+    import = "java.util.List"
+    import= "edu.fau.group3.model.Product"
+    %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,10 +16,21 @@
     <body>
 <%@include file="Banner.jsp" %>
 <br>
+<%
+int id = parseInt(request.getParameter("CollectionID"));
+DBUtil util = new DBUtil();
+
+List<Product> Product = DBUtil.GetProductsByCollectionId(id);
+for (int i=0; i<Product.size(); i++){
+%>
         <div class="header">
-            <h1>Mattresses</h1>
+            <h1>
+            <% out.print(Product.get(i).getProductName()); %>
+            </h1>
+            <% out.print(Product.get(i).getProductPrice()); %>
 
         </div>
+        <% } %>
         <div class="row">
             <div class="image">
                 <img src="mattress.jpg" alt="Pillows" class="pillow" style="width: 100%">
