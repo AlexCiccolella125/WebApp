@@ -5,27 +5,20 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String username;
 	private String password;
-	private String shipID;
-	private String billID;
 	private boolean adminStatus;
 	private int phone;
 	
 	public User(){
 	}
 	
-	public User(int userId, String firstName, String lastName, String email, String username, String password,
-			String shipID, String billID, boolean adminStatus, int phone) {
+	public User(int userId, String firstName, String lastName, String email, String password, boolean adminStatus, int phone) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.username = username;
 		this.password = password;
-		this.shipID = shipID;
-		this.billID = billID;
 		this.adminStatus = adminStatus;
 		this.phone = phone;
 	}
@@ -77,31 +70,7 @@ public class User {
 		this.phone = phone;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getShipID() {
-		return shipID;
-	}
-
-	public void setShipID(String shipID) {
-		this.shipID = shipID;
-	}
-
-	public String getBillID() {
-		return billID;
-	}
-
-	public void setBillID(String billID) {
-		this.billID = billID;
-	}
-
-	public boolean isAdminStatus() {
+	public boolean getAdminStatus() {
 		return adminStatus;
 	}
 

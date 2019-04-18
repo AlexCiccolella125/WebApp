@@ -6,7 +6,6 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
 public abstract class BaseService<T> {
 
 	protected JdbcTemplate jdbcTemplate;
@@ -16,10 +15,16 @@ public abstract class BaseService<T> {
 	}
 	
 	public abstract T getById(int id);
+
+	public abstract T getByName(String name);
 	
 	public abstract List<T> getAll();
 	
-	public abstract List<T> getByName(String name);
+	public abstract List<T> getSortedList(int id);
 	
 	public abstract boolean create(T t);
+
+	public abstract boolean update(T t);
+	
+	public abstract boolean DELETE(T t);
 }
