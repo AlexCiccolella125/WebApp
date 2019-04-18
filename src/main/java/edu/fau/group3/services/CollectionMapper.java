@@ -10,6 +10,7 @@ public class CollectionMapper implements RowMapper<Collection>{
 	public Collection mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Collection collection = new Collection();
 		collection.setCollectionID(rs.getInt("CollectionID"));
+		collection.setCollectionName(rs.getString("CollectionName"));
 		collection.setCollectionThumbnail(rs.getString("CollectionThumbnail"));
 		return collection;
 	}
