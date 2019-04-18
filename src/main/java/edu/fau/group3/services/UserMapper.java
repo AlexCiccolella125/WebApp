@@ -2,9 +2,7 @@ package edu.fau.group3.services;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.springframework.jdbc.core.RowMapper;
-
 import edu.fau.group3.model.User;
 
 public class UserMapper implements RowMapper<User>{
@@ -17,8 +15,6 @@ public class UserMapper implements RowMapper<User>{
 		user.setEmail(rs.getString("UserEmail"));
 		user.setPassword(rs.getString("UserPassword"));
 		user.setPhone(rs.getInt("UserPhone"));
-		user.setShipID(rs.getString("UserShipID"));
-		user.setBillID(rs.getString("UserBillID"));
 		user.setAdminStatus(rs.getBoolean("UserAdmin"));
 		return user;
 	}

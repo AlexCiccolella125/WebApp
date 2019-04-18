@@ -32,9 +32,9 @@ public class UserService extends BaseService<User>{
 	}	
 
 	@Override
-	public List<User> getByName(String name) {
-		String query = "SELECT * FROM EMPLOYEE where name =?";
-		return jdbcTemplate.query(query, new UserMapper());
+	public User getByName(String name) {
+		String query = "SELECT * FROM User where UserID =?";
+		return jdbcTemplate.queryForObject(query, new Object[] {name}, new UserMapper());
 	}
 	
 	@Override
@@ -47,5 +47,15 @@ public class UserService extends BaseService<User>{
 	public boolean update(User t) {
 		String query = "UPDATE User SET UserID=?, UserAdmin=?, UserFirstName=?, UserLastName=?, UserEmail=?, UserPassword=?, UserPhone=?, WHERE UserID=?";
 		return jdbcTemplate.update(query, t.getUserId(), t.getAdminStatus(), t.getFirstName(), t.getLastName(), t.getEmail(), t.getPassword(), t.getPhone()) > 0;
+	}
+	public boolean DELETE(User t){
+		String query = "DELETE FROM User WHERE UserID = ?";
+		return jdbcTemplate.update(query, t.getUserId()) > 0;
+	}
+
+	@Override
+	public List<User> getSortedList(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
