@@ -119,8 +119,8 @@ public class DBUtil {
 	public static boolean DELETEProduct(Product object) {
 		return PRODUCT_SERVICE.DELETE(object);
 	}
-
 	public static List<Product> getProductsByCollectionId(int id) {
+
 		return PRODUCT_SERVICE.getSortedList(id);
 	}
 
