@@ -14,7 +14,7 @@
 		for (int i = 0; i < Collections.size(); i++) {
 	%>
 	<div class="image">
-		<a href="ProductSelection.jsp?collectionID=<%out.print(Collections.get(i).getCollectionID());%>">
+		<a href="Product.jsp?collectionID=<%out.print(Collections.get(i).getCollectionID());%>">
 			<img
 				src="<%out.print(Collections.get(i).getCollectionThumbnail());%>"
 				class="pillow" style="width: 100%">

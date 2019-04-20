@@ -166,7 +166,6 @@ body {
 }
 </style>
 <body>
-	<%@include file="Banner.jsp" %>
 	<div id="backgroundcolor">
 		
 		<div class="container">

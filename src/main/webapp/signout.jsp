@@ -1,15 +1,3 @@
-<%
-// AUTHENTICATION
-Integer uid = (Integer)session.getAttribute("sessionID");
-if (uid == null) {
-%>
-<jsp:forward page="index.jsp"/>
-<%
-}// END AUTHENTICATION
-
-//User user = DBUtil.getUserById(uid);
-%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,8 +9,8 @@ if (uid == null) {
 <body>
 
 <!-- HERE WE ARE INVALIDATE THE SESSION, SO THAT NO VALUES WILL BE PRESENT IN SESSION -->
-<% session.invalidate(); %> 
-<jsp:forward page="index.jsp"/>
+<% session.invalidate(); 
+response.sendRedirect("index.jsp");%> 
 </body>
 
 </html>

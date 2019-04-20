@@ -16,8 +16,18 @@
 </head>
 
 <body>
+
+
+	<%// AUTHENTICATION CODE
+	Integer uid = (Integer)session.getAttribute("sessionID");
+	if(uid == null){
+		out.print("Log in or make an account");
+	}
+	%>
+	
+	<%-- Banner Code --%>
 	<div class="topnav">
-		<a class="#active" href="Login.jsp">Home</a>
+		<a class="#active" href="index.jsp">Home</a>
 		<div class="dropdown">
 			<button class="dropbtn">Collections <i class="fa fa-caret-down"></i></button>
 			<div class="dropdown-content">
@@ -27,10 +37,10 @@
 					if(i >= Collections.size()){
 						break;
 					}%>
-					<a href="ProductSelection.jsp?collectionID=<%out.print(Collections.get(i).getCollectionID());%>">
+					<a href="Product.jsp?collectionID=<%out.print(Collections.get(i).getCollectionID());%>">
 					<%out.print(Collections.get(i).getCollectionName()); %></a>
 				<%}%>
-				<a href="Collection.jsp?CollectionID=null">See All Collections</a>
+				<a href="Collection.jsp?CollectionID=-1">See All Collections</a>
 			</div>
 		</div>
 		<div class="dropdown">
@@ -44,15 +54,25 @@
 					if(i >= product.size()){
 						break;
 					}%>
-					<a href="Product.jsp?productID=<%out.print(product.get(i).getProductID());%>">
+					<a href="ProductPage.jsp?productID=<%out.print(product.get(i).getProductID());%>">
 					<%out.print(product.get(i).getProductName()); %></a>
 					
 				<%}%>
-				<a href="Product.jsp?productID=null">See All Products</a>
+				<a href="Product.jsp?collectionID=-1">See All Products</a>
 			</div>
 		</div>
-		<a href="Contact.html">Login</a>
-
+		<a href="
+			<%if(uid == null || uid == -1){
+				out.print("Login.jsp");
+				%>"><%
+				out.print("Login"); 
+			}else{
+				out.print("signout.jsp");
+				%>"><%
+				out.print("Sign out");
+				} %>
+			</a>
+		
 	</div>
 </body>
 </html>

@@ -13,23 +13,45 @@
 <link href="Login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%@include file="Banner.jsp" %>
+<jsp:include page="Banner.jsp" />
 <br>
 <%
-String ProductName = request.getParameter("ProductName");
-DBUtil util= new DBUtil();
-Product product = DBUtil.getProductByID(request.getParameter("ProductID"));
-List<ImageList> ImageList = DBUtil.getImagesByID(id);
-for (int i =0; i<ImageList.size(); i++){
+DBUtil util= new DBUtil();//initialise variables
 
-%>
-<div>
-out.print(Image)
-</div>
+Product product = DBUtil.getProductByID(Integer.parseInt(request.getParameter("productID")));
 
-<%
+
+ImageList Images = DBUtil.getImagesByID(product.getImageListID());
+
+Images.getThumbnail();
+if(Images.getImage1().isEmpty()){
+	out.print("empty1");
+}if(Images.getImage2().isEmpty()){
+	out.print("empty2");
+}if(Images.getImage3().isEmpty()){
+	out.print("empty3");
+}if(Images.getImage4().isEmpty()){
+	out.print("empty4");
 }
 %>
+
+<!-- The pictures that are in the database are just placeholders that I added -->
+<!-- They need to be changed before we present the project -->
+<div>
+<p><%out.print(product.getProductName()); %></p>
+<p><%out.print(product.getProductPrice()); %></p>
+<p><%out.print(product.getProductDescription()); %></p>
+<p><%out.print(product.getProductSKU()); %></p>
+<p><%out.print(product.getProductName()); %></p>
+
+<!-- Below are the images of the product -->
+<img src="<%out.print(Images.getThumbnail()); %>">
+<img src="<%out.print(Images.getImage1()); %>">
+<img src="<%out.print(Images.getImage2()); %>">
+<img src="<%out.print(Images.getImage3()); %>">
+<img src="<%out.print(Images.getImage4()); %>">
+</div>
+
 
 </body>
 </html>

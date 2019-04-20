@@ -120,7 +120,6 @@ public class DBUtil {
 		return PRODUCT_SERVICE.DELETE(object);
 	}
 	public static List<Product> getProductsByCollectionId(int id) {
-
 		return PRODUCT_SERVICE.getSortedList(id);
 	}
 

@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
     import = "edu.fau.group3.util.DBUtil"
-    import = "java.util.List"
     import= "edu.fau.group3.model.Product"
+    import = "edu.fau.group3.model.ImageList"
+    import = "java.util.List"
     %>
 <!DOCTYPE html>
 <html>
@@ -14,40 +15,40 @@
 
     </head>
     <body>
-<%@include file="Banner.jsp" %>
+<jsp:include page="Banner.jsp" />
 <br>
 <%
-int id = request.getParameter("CollectionID");
+//initialising parameters
 DBUtil util = new DBUtil();
+List<Product> Product = null;//initialise list
+int collectionInt = Integer.parseInt(request.getParameter("collectionID"));
 
-List<Product> Product = DBUtil.GetProductsByCollectionId(id);
+//The .getParameter is a string, the Integer.parseInt needed for DBUtil to function
+//DBUtil checks the database for products with this specific collectionID
+//If the parameter -1, "see all products" on banner.jsp passed the collectionID.
+if(collectionInt > 0){//CollectionInt is above 1 when a specific collection is called
+	Product = DBUtil.getProductsByCollectionId(collectionInt);
+}
+else{
+	Product = DBUtil.getAllProducts();//"see all products" returns -1 therefore failing first check
+}
 for (int i=0; i<Product.size(); i++){
+	//get the imageId from the product
+	//load the record from database and pass it to ImageList object
+	ImageList Image = DBUtil.getImagesByID(Product.get(i).getImageListID());
 %>
-        <div class="header">
-            <h1>
-            <% out.print(Product.get(i).getProductName()); %>
-            </h1>
-            <% out.print(Product.get(i).getProductPrice()); %>
-
-        </div>
-        <% } %>
+		<!-- The formatting for this page needs editing, the image and text keep overlapping -->
         <div class="row">
             <div class="image">
-                <img src="mattress.jpg" alt="Pillows" class="pillow" style="width: 100%">
+                <img src="<%out.print(Image.getThumbnail()); %>" class="pillow" style="width: 100%">
+                <%--print the imageList image --%>
+                <br><br><br><br><br><br><br><br><br>
                 <div class= "centered">
-                    <h1>Memory Mattress</h1><br /><br /><br /><br />
-                    <h2>$129.99</h2>
+                    <h1><% out.print(Product.get(i).getProductName()); %></h1><br />
+                    <h2><% out.print(Product.get(i).getProductPrice()); %></h2>
                 </div>
             </div>
-            <div class="image">
-                <img src="mattress.jpg" alt="Pillows" class="pillow" style="width: 100%">
-                <div class= "centered">
-                    <h1>Mellow Mattress</h1><br /><br /><br /><br />
-                    <h2>$99.99</h2>
-                </div>
-
-            </div>
-
         </div>
+        <% }%>
     </body>
 </html>
