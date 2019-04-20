@@ -42,14 +42,27 @@ if(Images.getImage1().isEmpty()){
 <p><%out.print(product.getProductPrice()); %></p>
 <p><%out.print(product.getProductDescription()); %></p>
 <p><%out.print(product.getProductSKU()); %></p>
-<p><%out.print(product.getProductName()); %></p>
 
 <!-- Below are the images of the product -->
+
+
 <img src="<%out.print(Images.getThumbnail()); %>">
-<img src="<%out.print(Images.getImage1()); %>">
-<img src="<%out.print(Images.getImage2()); %>">
-<img src="<%out.print(Images.getImage3()); %>">
-<img src="<%out.print(Images.getImage4()); %>">
+<%
+//takes all the image URL's and adds them to a list
+//if there is a String that is null, the loop is broken
+//null Strings mean that there is no image in the Database.
+String[] images = {Images.getImage1(),Images.getImage2(),Images.getImage3(),Images.getImage4()};
+	for(int i = 0; i<4; i++){
+		if(images[i] != null){
+			%><img src="<%out.print(images[i]); %>"><%
+		}
+		else{
+			break;
+		}
+	}
+%>
+
+
 </div>
 
 

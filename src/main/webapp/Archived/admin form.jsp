@@ -68,17 +68,37 @@
 
                     <button class="OrderBtn">Submit</button>
 
-                </fieldset><br>
-                <fieldset>
-                    <h2>Search for existing Products</h2>
-                    <input type="text" placeholder="Search..">
-                    <button class="SubmitBtn" onclick="Search()">Search</button>
-                    
+                </fieldset><fieldset>
+                    <h2>Add a New User</h2>
+                    <p>
+                        <label>User First Name: </label>
+                        <input type="text" id="UserFN" required>
+                    </p>
 
-                </fieldset>
-            </div>
-            <div class="column">
-                <fieldset>
+                    <p>
+                        <label>User Last Name: </label>
+                        <input type="text" id="UserLN" required>
+                    </p>
+
+                    <p>
+                        <label>User E-mail: </label>
+                        <input type="text" id="UserEmail">
+                    </p>
+                    <p>
+                        <label>User Password: </label>
+                        <input type="text" id="UserPass" required>
+                    </p>
+
+                    <p>
+                        <label>User Phone: </label>
+                        <input type="phone" id="UserPhone" required>
+                    </p>
+                    <input type="checkbox" name="admin" value="true"> Select if User is Admin<br>
+                    
+                    <br>
+                    <button class="OrderBtn">Submit</button>
+
+                </fieldset><fieldset>
                     <div>
                         <h2>Add a New Collection</h2>
                         <p>
@@ -98,12 +118,29 @@
                         <button class="SubmitBtn">Submit</button>
                     </div>
                 </fieldset>
-                <br>
+                
+            </div>
+            <div class="column">
+                
+                
                 <fieldset>
                     <h2>Search for existing Collections</h2>
                     <input type="text" placeholder="Search..">
                     <button class="SubmitBtn" onclick="Search()">Search</button>
 <!--                    Search function needs to be created/added-->
+
+                </fieldset>
+                <fieldset>
+                    <h2>Search for existing Products</h2>
+                    <input type="text" placeholder="Search..">
+                    <button class="SubmitBtn" onclick="Search()">Search</button>
+                    
+
+                </fieldset><fieldset>
+                    <h2>Search for existing Users</h2>
+                    <input type="text" placeholder="Search Users...">
+                    <button class="SubmitBtn" onclick="Search()">Search</button>
+                    <!--                    Search function needs to be created/added-->
 
                 </fieldset>
             </div>

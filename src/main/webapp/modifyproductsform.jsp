@@ -7,14 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
-<% out.println(); %> Name:<input type="text" value="">
-<% out.println(); %> Price:<input type="text" value="">
-<% out.println(); %> Description:<input type="text" value="">
-<% out.println(); %> SKU:<input type="text" value="">
-<% out.println(); %> Inventory: <input type="text" value="">
-
+<fieldset>
+<form action = "ValUpload.jsp?UploadType=User" method = "post">
+Product Name: <input type="text"  value="" name="ProductName">
+Product Price: <input type="text" value="" name="ProductPrice">
+Product Id: <input type="text" value="" name=" ProductID">
+Product Description: <input type="text" value="" name=" ProductDescr">
+Product SKU: <input type="text" value="" name=" ProductSKU">
+Product Inventory: <input type="text" value="" name=" ProductInven">
+Image List Id: <input type="text" value="" name="ImgListID">
+Collection Id: <input type="text" value="" name="CollectID">
+<input type="button" value="submit">
 </form>
+</fieldset>
 <input type="button" value="submit">
 <input type="button" value="delete">
 </body>

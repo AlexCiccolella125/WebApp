@@ -33,14 +33,18 @@ public class UserService extends BaseService<User>{
 
 	@Override
 	public User getByName(String name) {
-		String query = "SELECT * FROM User where UserID =?";
+		String query = "SELECT * FROM User where UserEmail =?";
+		try {
 		return jdbcTemplate.queryForObject(query, new Object[] {name}, new UserMapper());
+		}catch(EmptyResultDataAccessException ex){
+			return null;
+		}
 	}
 	
 	@Override
 	public boolean create(User t) {
-		String query = "INSERT INTO User (UserID, UserAdmin, UserFirstName, UserLastName, UserEmail, UserPassword, UserPhone) value (?,?,?,?,?,?,?)";
-		return jdbcTemplate.update(query, t.getUserId(), t.getAdminStatus(), t.getFirstName(), t.getLastName(), t.getEmail(), t.getPassword(), t.getPhone()) > 0;
+		String query = "INSERT INTO User (UserAdmin, UserFirstName, UserLastName, UserEmail, UserPassword, UserPhone) value (?,?,?,?,?,?)";
+		return jdbcTemplate.update(query, t.getAdminStatus(), t.getFirstName(), t.getLastName(), t.getEmail(), t.getPassword(), t.getPhone()) > 0;
 	}
 	
 	@Override

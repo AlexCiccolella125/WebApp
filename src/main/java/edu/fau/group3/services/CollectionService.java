@@ -34,7 +34,11 @@ public class CollectionService extends BaseService<Collection>{
 	@Override
 	public Collection getByName(String name) {
 		String query = "SELECT * FROM Collection where CollectionName =?";
-		return jdbcTemplate.queryForObject(query, new Object[] {name}, new CollectionMapper());
+		try{
+			return jdbcTemplate.queryForObject(query, new Object[] {name}, new CollectionMapper());
+		}catch(EmptyResultDataAccessException ex){
+			return null;
+		}
 	}
 		
 	@Override

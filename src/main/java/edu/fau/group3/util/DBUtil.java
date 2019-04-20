@@ -16,13 +16,14 @@ import edu.fau.group3.services.ProductService;
 
 public class DBUtil {
 
-	final static AnnotationConfigApplicationContext CONTEXT = new AnnotationConfigApplicationContext(
-			SpringJdbcConfig.class);
+	final static AnnotationConfigApplicationContext CONTEXT = new AnnotationConfigApplicationContext(SpringJdbcConfig.class);
 	final static UserService USER_SERVICE = CONTEXT.getBean(UserService.class);
 	final static ImageListService IMAGE_LIST_SERVICE = CONTEXT.getBean(ImageListService.class);
 	final static CollectionService COLLECTION_SERVICE = CONTEXT.getBean(CollectionService.class);
 	final static ProductService PRODUCT_SERVICE = CONTEXT.getBean(ProductService.class);
 
+	
+	
 	// user methods
 	public static List<User> getAllUsers() {
 		return USER_SERVICE.getAll();
@@ -56,7 +57,19 @@ public class DBUtil {
 		}
 		return -1;
 	}
+	
+	public static boolean checkIfEmailExists(String Email){
+		User user = USER_SERVICE.getByName(Email);
+		if(user != null) {
+			return true;//The email does exist
+		}
+		else {
+			return false;//The email does not exist
+		}
+	}
 
+	
+	
 	// ImageList methods
 	public static List<ImageList> getAllImages() {
 		return IMAGE_LIST_SERVICE.getAll();
@@ -77,7 +90,19 @@ public class DBUtil {
 	public static boolean DELETEImages(ImageList object) {
 		return IMAGE_LIST_SERVICE.DELETE(object);
 	}
+	
+	public static boolean checkIfImageListExists(int Id){
+		ImageList images = IMAGE_LIST_SERVICE.getById(Id);
+		if(images != null) {
+			return true;//The email does exist
+		}
+		else {
+			return false;//The email does not exist
+		}
+	}
 
+	
+	
 	// collection methods
 	public static List<Collection> getAllCollections() {
 		return COLLECTION_SERVICE.getAll();
@@ -98,7 +123,18 @@ public class DBUtil {
 	public static boolean DELETECollection(Collection object) {
 		return COLLECTION_SERVICE.DELETE(object);
 	}
+	public static boolean checkIfCollectionExists(int Id){
+		Collection collection = COLLECTION_SERVICE.getById(Id);
+		if(collection != null) {
+			return true;//The collection does exist
+		}
+		else {
+			return false;//The collection does not exist
+		}
+	}
 
+	
+	
 	// Product methods
 	public static List<Product> getAllProducts() {
 		return PRODUCT_SERVICE.getAll();
@@ -122,5 +158,13 @@ public class DBUtil {
 	public static List<Product> getProductsByCollectionId(int id) {
 		return PRODUCT_SERVICE.getSortedList(id);
 	}
-
+	public static boolean checkIfProductExists(String name){
+		Product product = PRODUCT_SERVICE.getByName(name);
+		if(product != null) {
+			return true;//The product does exist
+		}
+		else {
+			return false;//The product does not exist
+		}
+	}
 }

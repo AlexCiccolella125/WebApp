@@ -34,13 +34,21 @@ public class ProductService extends BaseService<Product>{
 	@Override
 	public Product getByName(String name) {
 		String query = "SELECT * FROM Product where ProductName =?";
-		return jdbcTemplate.queryForObject(query, new Object[] {name}, new ProductMapper());
+		try{
+			return jdbcTemplate.queryForObject(query, new Object[] {name}, new ProductMapper());
+		}catch(EmptyResultDataAccessException ex){
+			return null;
+		}
 	}
 		
 	@Override
 	public List<Product> getSortedList(int id) {
 		String query = "SELECT * FROM Product where CollectionID =?";
-		return jdbcTemplate.query(query, new Object[] {id}, new ProductMapper());	
+		try {
+			return jdbcTemplate.query(query, new Object[] {id}, new ProductMapper());	
+		}catch(EmptyResultDataAccessException ex){
+			return null;
+		}
 	}
 	@Override
 	public boolean create(Product t) {

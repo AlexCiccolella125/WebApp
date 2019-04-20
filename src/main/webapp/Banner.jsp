@@ -14,16 +14,21 @@
 <title>Banner</title>
 <link href="Banner.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
 
 
 	<%// AUTHENTICATION CODE
-	Integer uid = (Integer)session.getAttribute("sessionID");
-	if(uid == null){
-		out.print("Log in or make an account");
+	if(request.getParameter("CreationSuccess") != null){
+		if(request.getParameter("CreationSuccess").equals("true")){
+			out.print("User Creation Successful<BR>");
+		}else{
+			out.print("Error Creating User<BR>");
+		}
 	}
-	%>
+	Integer uid = (Integer)session.getAttribute("sessionID");
+	if(uid == null){%>
+		<a href="signup.jsp"><% out.print("Log in or make an account");%></a>
+	<% }%>
 	
 	<%-- Banner Code --%>
 	<div class="topnav">
