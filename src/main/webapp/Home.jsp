@@ -22,67 +22,9 @@ if (uid == null) {
 
 <body>
 	<%
+	out.print("<P>" + session.getId() +"<P>");
 	User user = DBUtil.getUserById(uid);
 	out.print(uid);
 	%>
-	<ul>
-  		<li><a href="Home.jsp">Home</a></li>
-		<li style="float:right"><a class="active" href="#about">Logout</a></li>
-	  	<li style="float:right"><a class="active" href="#about">Username</a></li>
-	</ul>
-	<p><a href="Employee.jsp">Show all Employees</a></p>
-	<p><a href="EmployeeV2.jsp">Show all Employees V2</a></p>
-	<p>Search EmpId<input type="text" name="txtid" id="txtid">
-	<input type="button" value="Search" onclick="searchEmp()"></p>
-	
-	<form action="AddEmployee.jsp" id="frm1" name="frm1" method="post">
-		<fieldset style="width:30%;"><legend><em><strong>Add new employee
-												</strong></em></legend>
-			<div id="div1">
-				<label for="lblid">ID</label>
-				<input type="text" id="txtID" name="txtID" required/>
-			</div>
-			<div id="div2">
-				<label for="lblname">Name</label>
-				<input type="text" id="txtname" name="txtname" required/>
-			</div>
-			<div id="div3">
-				<label for="lbllastname">Last Name</label>
-				<input type="text" id="txtlastname" name="txtlastname" required/>
-			</div>			
-			<div id="div4">
-				<label for="lblemail">Email</label>
-				<input type="text" id="txtemail" name="txtemail" required/>
-			</div>			
-			<div id="div5">
-				<label for="lblsalary">Salary</label>
-				<input type="text" id="txtsalary" name="txtsalary" required/>
-			</div>
-			<div id="div6">
-				<label for="lbldepid">Department Id</label>
-				<input type="text" id="txtdepid" name="txtdepid" required/>
-			</div>				
-			<div id="div7">
-				<input type="submit" value="Add Employee"/>
-			</div>
-		</fieldset>
-	</form>
-	
-	
 </body>
-<body>
-<!-- HERE WE ARE INVALIDATE THE SESSION, SO THAT NO VALUES WILL BE PRESENT IN SESSION -->
-<% session.invalidate(); %> 
-<jsp:forward page="index.jsp"/>
-</body>
-<script type="text/javascript">
-	function searchEmp(){
-		var id = document.getElementById("txtid").value;
-		console.log('ID = ' + id);
-		window.open("SearchEmpById.jsp?ID=" + id, "_self");
-		
-	}
-
-
-</script>
 </html>

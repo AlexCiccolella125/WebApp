@@ -15,13 +15,16 @@
 	
 	int userId = DBUtil.checkEmailAndPassword(email, password);
 	if (userId >= 0) {
+		
+		out.print("user found");
 		//if the user is valid, then this block executes and WE ARE KEEPING THE USER IN A SESSION
 		session.setAttribute("sessionID", userId);//THIS IS HOW WE DECLARE THE USER IN A SESSION
 		response.sendRedirect("Home.jsp"); //AND WE REDIRECTED TO HOME PAGE
 	}
 	else {
+		out.print("user not found");
 		//IF THE USER IS NOT AUTHORIZED THEN AGAIN HE WILL BE REDIRECTED TO THE SAME LOGIN PAGE
-		response.sendRedirect("index.jsp");
+		//response.sendRedirect("index.jsp");
 	}
 	%>
 

@@ -17,7 +17,7 @@
 <%@include file="Banner.jsp" %>
 <br>
 <%
-int id = parseInt(request.getParameter("CollectionID"));
+int id = request.getParameter("CollectionID");
 DBUtil util = new DBUtil();
 
 List<Product> Product = DBUtil.GetProductsByCollectionId(id);

@@ -7,12 +7,12 @@ public class User {
 	private String email;
 	private String password;
 	private boolean adminStatus;
-	private int phone;
+	private long phone;
 	
 	public User(){
 	}
 	
-	public User(int userId, String firstName, String lastName, String email, String password, boolean adminStatus, int phone) {
+	public User(int userId, String firstName, String lastName, String email, String password, boolean adminStatus, long phone) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -62,11 +62,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getPhone() {
+	public long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 
