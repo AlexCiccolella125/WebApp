@@ -86,6 +86,9 @@
 		}
 	
 	}
+	if(UploadType.equals("ModifyUser")){
+		out.print("continue");
+	}
 	%>
 </body>
 </html>

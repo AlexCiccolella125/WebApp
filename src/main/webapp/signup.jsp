@@ -53,6 +53,7 @@ fieldset {
 }
 </style>
 <body>
+<jsp:include page="Banner.jsp" />
 	<div id="background">
 		<fieldset>
 			<div id="containter">

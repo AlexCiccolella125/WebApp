@@ -164,9 +164,8 @@
                 
 
             </fieldset><fieldset>
-                <h2>Search for existing Users</h2>
-                <input type="text" placeholder="Search Users...">
-                <button class="SubmitBtn" onclick="Search()">Search</button>
+                <h2>Modify Existing Users</h2>
+                <a href="modifyusersform.jsp">See All Users</a>
                 <!--                    Search function needs to be created/added-->
 
             </fieldset>
