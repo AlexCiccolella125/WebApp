@@ -86,8 +86,8 @@
 		}
 	
 	}
-	if(UploadType.equals("ModifyUser")){
-		out.print("continue");
+	if(UploadType.equals("Collection")){
+		//needs to be completed
 	}
 	%>
 </body>

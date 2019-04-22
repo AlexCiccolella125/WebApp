@@ -32,6 +32,10 @@ public class DBUtil {
 	public static User getUserById(int id) {
 		return USER_SERVICE.getById(id);
 	}
+	
+	public static User getUserByEmail(String Email) {
+		return USER_SERVICE.getByName(Email);
+	}
 
 	public static boolean createUser(User object) {
 		return USER_SERVICE.create(object);
