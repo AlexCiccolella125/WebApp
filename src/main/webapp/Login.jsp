@@ -11,28 +11,31 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 <%-- calling the css --%>
-<link rel="stylesheet" href="Login.css">
+<link type= text/css rel="stylesheet" href="Login.css">
+
+
 </head>
 <body>
-	<jsp:include page="Banner.jsp" />
-	<div id="background">
-		<fieldset>
-			<div id="container">
-				<form action="validate.jsp" method="post">
+
+	<jsp:include page="Banner.jsp" ></jsp:include> 
+	<div id="back">
+		<fieldset id ="LoginPage">
+			<div class="container">
+				<form action="validate.jsp" method="post"> 
 					<h1 id="login">Login</h1>
 					<h4 id="Info">
 						Welcome back! Login to access our files. Did you forget your <a>password</a>?
 					</h4>
 					<h5 id="UP">
-						Email: <input type="txt" value="" name="email">
+						Email: <input type="text" value="" name="email">
 					</h5>
 					<h5 id="UP">
-						Password: <input type="txt" value="" name="password">
+						Password: <input type="text" value="" name="password">
 					</h5>
 					<input id="button" type="Submit" Value="Login">
-				</form>
+				<!-- </form> -->
 			</div>
 		</fieldset>
 	</div>
