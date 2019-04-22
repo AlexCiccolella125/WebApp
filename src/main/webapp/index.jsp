@@ -9,35 +9,15 @@
 <title>Home Page</title>
 <%-- calling the css --%>
 <link rel="stylesheet" href="Login.css">
-<style>
-<%--the css here may not be necessary --%> 
-h1 {
-	text-align: center;
-	font-family: serif;
-	font-style: normal;
-	font-size: 50px;
-	margin-top: 150px;
-}
 
-h3 {
-	text-align: center;
-	font-family: serif;
-	font-size: 20px;
-}
-
-.row {
-	display: flex;
-	vertical-align: middle;
-}
-</style>
 </head>
 <body>
 	<jsp:include page="Banner.jsp" />
-
-	<h1>Welcome to Pillowtalk!</h1>
+<fieldset id= "LoginPage">
+	<center><h1>Welcome to Pillowtalk!</h1>
 
 	<h3>The online shop where you can find all your pillow and
-		mattress needs!</h3>
-
+		mattress needs!</h3></center>
+</fieldset>
 </body>
 </html>
