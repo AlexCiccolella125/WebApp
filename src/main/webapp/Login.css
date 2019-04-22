@@ -1,22 +1,28 @@
+@CHARSET "ISO-8859-1";
 <style>
-	#container{
+	.container{
 	    position: center;
-	}
-	#background{
-	   	background: color ; 
-		height: 100%;
-	    width: 100%;
+	    background-color:blue;
 	    
 	}
-	fieldset{
+	
+	body{
+	height:100vh;
+	width:100%;
+	margin:0;
+	padding 0;
+	background:url(Cute.jpg);
+	}
+	#LoginPage{
 	    margin: 30px;
-	    width: 500px;
+	    width: auto;
+	    
 	    opacity: 0.8;
-	    filter:alpha(opacity=80);
-	  	background-color: white;
+	    filter:alpha(opacity=80); 
+	  	background-color: aliceblue;
 	    float:right;
 	    margin-right: 35%;
-	    margin-top: 15%;
+	    margin-top: 15%; 
 	}
 	#login{
 	    text-align: center;
@@ -38,7 +44,7 @@
 	/* Style the links inside the navigation bar */
 	.topnav a {
 	  	float: left;
-		color: red;
+		color: white;
 		text-align: center;
 		padding: 14px 16px;
 		text-decoration: none;
@@ -47,7 +53,7 @@
 
 	/* Change the color of links on hover */
 	.topnav a:hover {
-		background-color: #ddd;
+		background-color: red;
 		color: black;
 	}
 	
