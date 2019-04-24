@@ -48,11 +48,11 @@
                 </p>
                 <p>
                     <label>Product Price: </label>
-                    <input type="text" name="ProductPrice">
+                    <input type="number" name="ProductPrice">
                 </p>
                 <p>
                     <label>Product Description: </label>
-                    <input type="text" name="ProductDesccription" required>
+                    <input type="text" maxlength="4" name="ProductDesccription" required>
                 </p>
                 <p>
                     <label>Product SKU: </label>

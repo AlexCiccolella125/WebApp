@@ -11,13 +11,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="Restricted.jsp" />
 
 <%
-	
-	DBUtil util = new DBUtil();
 	String SKU = request.getParameter("ProductSKU");
-	Product product = util.GetProductBySKU(SKU);
-	ImageList images = util.getImagesByID(product.getImageListID());
+	if(DBUtil.checkIfProductExists(SKU) != true){
+		response.sendRedirect("admin.jsp?DeleteSuccess=false");
+	}else{
+	Product product = DBUtil.GetProductBySKU(SKU);
+	ImageList images = DBUtil.getImagesByID(product.getImageListID());
 %>
 <fieldset>
 <form action = "Update.jsp?UpdateType=Product" method = "post">
@@ -37,5 +39,9 @@
 	<input type=submit value="submit">
 </form>
 </fieldset>
+<form action="Delete.jsp?Type=Product&ID=<%=SKU%>" method="post">
+	<button type="submit"> Delete Product</button>
+</form>
+<%} %>
 </body>
 </html>

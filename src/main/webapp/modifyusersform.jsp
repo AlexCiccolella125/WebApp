@@ -11,15 +11,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<jsp:include page="Restricted.jsp" />
 	<form action="Update.jsp?UpdateType=User" method="post">
 	
 		
 	<%
-	DBUtil util = new DBUtil();
 	String Email = request.getParameter("UserEmail");
-	User user = util.getUserByEmail(Email);
 	
+	User user = DBUtil.getUserByEmail(Email);
+	if(DBUtil.checkIfEmailExists(Email) == false){
+		response.sendRedirect("admin.jsp?DeleteSuccess=false");
+	}else{
 	String AdminStatus = null;
 	int ID = user.getUserId();
 	if(user.getAdminStatus()){
@@ -27,17 +29,17 @@
 	}
 	%>
 		
-	 Email<input name="Email" type="email" value="<%=user.getEmail()%>"> 
+	 Email<input name="Email" type="Email" value="<%=user.getEmail()%>"> 
 	 <br>Name<input name="FirstName" type="text" value="<%=user.getFirstName()%>"> 
 	 <br>Last name <input name="LastName" type="text" value="<%=user.getLastName()%>"> 
 	 <br>Password<input name="Password" type="password" value="<%=user.getPassword()%>"> 
 	 <br>Phone<input name="Phone" type="tel" value="<%=user.getPhone()%>"> 
 	 <br><input name="AdminStatus" type = "checkbox" value="true" <%=AdminStatus %> /> AdminStatus 
      <br><input type="submit" value="Update">
-<!-- 		  <input type = "submit" value = "Delete" />  -->
-
-
-
 </form>
+<form action="Delete.jsp?Type=User&Email=<%=Email%>" method="post">
+	<button type="submit"> Delete User</button>
+</form>
+<%} %>
 </body>
 </html>
