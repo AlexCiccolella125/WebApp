@@ -71,7 +71,7 @@
 		}
 		
 		Product product = new Product(IDPlaceholder,productName, productPrice, productDescription,productSKU,productInventory,imageListID, collectionID);
-		boolean productExist = DBUtil.checkIfProductExists(productName);
+		boolean productExist = DBUtil.checkIfProductExists(productSKU);
 		if(productExist){
 			response.sendRedirect("admin.jsp?CreationSuccess=false");//productAdded False, redirect with error flag
 		}
@@ -84,11 +84,15 @@
 				response.sendRedirect("admin.jsp?CreationSuccess=false");//productAdded False, redirect with error flag
 			}
 		}
-	
 	}
 	if(UploadType.equals("Collection")){
 		//needs to be completed
+		String CollectionName = request.getParameter("");
+		
 	}
-	%>
+	
+	
+	
+%>
 </body>
 </html>

@@ -136,6 +136,9 @@ public class DBUtil {
 			return false;//The collection does not exist
 		}
 	}
+	public static Collection getCollectionByName(String name){
+		return COLLECTION_SERVICE.getByName(name);
+	}
 
 	
 	
@@ -162,8 +165,8 @@ public class DBUtil {
 	public static List<Product> getProductsByCollectionId(int id) {
 		return PRODUCT_SERVICE.getSortedList(id);
 	}
-	public static boolean checkIfProductExists(String name){
-		Product product = PRODUCT_SERVICE.getByName(name);
+	public static boolean checkIfProductExists(String SKU){
+		Product product = PRODUCT_SERVICE.getByName(SKU);
 		if(product != null) {
 			return true;//The product does exist
 		}
@@ -171,4 +174,7 @@ public class DBUtil {
 			return false;//The product does not exist
 		}
 	}
+	public static Product GetProductBySKU(String SKU){
+		return PRODUCT_SERVICE.getByName(SKU);
+		}
 }

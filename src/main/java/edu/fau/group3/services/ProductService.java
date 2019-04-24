@@ -32,10 +32,10 @@ public class ProductService extends BaseService<Product>{
 	}	
 
 	@Override
-	public Product getByName(String name) {
-		String query = "SELECT * FROM Product where ProductName =?";
+	public Product getByName(String SKU) {
+		String query = "SELECT * FROM Product where ProductSKU =?";
 		try{
-			return jdbcTemplate.queryForObject(query, new Object[] {name}, new ProductMapper());
+			return jdbcTemplate.queryForObject(query, new Object[] {SKU}, new ProductMapper());
 		}catch(EmptyResultDataAccessException ex){
 			return null;
 		}

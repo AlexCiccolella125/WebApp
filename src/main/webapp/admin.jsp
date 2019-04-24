@@ -99,7 +99,7 @@
 
             </form>
             </fieldset>
-             <form action="Upload.jsp?UploadType=User" method="post">
+            <form action="Upload.jsp?UploadType=User" method="post">
             <fieldset>
                 <h2>Add a New User</h2>
                 <h5 id="Info">
@@ -123,42 +123,43 @@
 					<input id="button" type="Submit" Value="Sign Up">
 
             </fieldset></form>
-             <form action="Upload.jsp?UploadType=Product" method="post">
+       <form action="Upload.jsp?UploadType=Collection" method="post">
             <fieldset>
                 <div>
                     <h2>Add a New Collection</h2>
 
                     <p>
                         <label>Collection Name: </label>
-                        <input type="text" id="CollName" required>
+                        <input type="text" id="CollectionName" required>
                     </p>
-
                     <p>
                         <label>CollectionThumbnail: </label>
-                        <input type="text" id="CollThmbnl">
+                        <input type="text" id="CollectionThumbnail">
                     </p>
-                    <button class="SubmitBtn">Submit</button>
+                    <input id="button" type="Submit">
                 </div>
-            </fieldset></form>
+            </fieldset>
+        </form>
             
         </div>
         <div class="column">
-            
-            
+            <form action="modifycollectionsform.jsp" method="post">
             <fieldset>
                 <h2>Search for existing Collections</h2>
-                <input type="text" placeholder="Search..">
-                <button class="SubmitBtn" onclick="Search()">Search</button>
-<!--                    Search function needs to be created/added-->
-
+                <input type="text" name="CollectionName" placeholder="Search CollectionName..">
+                <input id="button" type="Submit" Value="Search">
+		<!--Search function needs to be created/added-->
             </fieldset>
+            </form>
+            
+            <form action="modifyproductsform.jsp" method="post">
             <fieldset>
                 <h2>Search for existing Products</h2>
-                <input type="text" placeholder="Search..">
-                <button class="SubmitBtn" onclick="Search()">Search</button>
-                
-
+                <input type="text" name="ProductSKU" placeholder="Search ProductSKU..">
+                <input id="button" type="Submit" Value="Search">
             </fieldset>
+            </form>
+            
             <form action="modifyusersform.jsp" method="post">
             <fieldset>
                 <h2>Search for Existing Users</h2>

@@ -20,24 +20,24 @@
 	String Email = request.getParameter("UserEmail");
 	User user = util.getUserByEmail(Email);
 	
-		String AdminStatus = null;
-		int ID = user.getUserId();
-		if(user.getAdminStatus()){
-			AdminStatus = "checked = true";
-		}
+	String AdminStatus = null;
+	int ID = user.getUserId();
+	if(user.getAdminStatus()){
+		AdminStatus = "checked = true";
+	}
 	%>
 		
-			 Email<input name="Email" type="email" value="<%=user.getEmail()%>"> 
-			 <br>Name<input name="FirstName" type="text" value="<%=user.getFirstName()%>"> 
-			 <br>Last name <input name="LastName" type="text" value="<%=user.getLastName()%>"> 
-			 <br>Password<input name="Password" type="password" value="<%=user.getPassword()%>"> 
-			 <br>Phone<input name="Phone" type="tel" value="<%=user.getPhone()%>"> 
-			 <br><input name="AdminStatus" type = "checkbox" value="true" <%=AdminStatus %> /> AdminStatus 
-		     <br><input type="submit" value="Update"> </button> 
+	 Email<input name="Email" type="email" value="<%=user.getEmail()%>"> 
+	 <br>Name<input name="FirstName" type="text" value="<%=user.getFirstName()%>"> 
+	 <br>Last name <input name="LastName" type="text" value="<%=user.getLastName()%>"> 
+	 <br>Password<input name="Password" type="password" value="<%=user.getPassword()%>"> 
+	 <br>Phone<input name="Phone" type="tel" value="<%=user.getPhone()%>"> 
+	 <br><input name="AdminStatus" type = "checkbox" value="true" <%=AdminStatus %> /> AdminStatus 
+     <br><input type="submit" value="Update">
 <!-- 		  <input type = "submit" value = "Delete" />  -->
-	
-		
-		
-		</form>
+
+
+
+</form>
 </body>
 </html>

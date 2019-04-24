@@ -50,8 +50,13 @@ public class CollectionService extends BaseService<Collection>{
 	@Override
 	public boolean update(Collection t) {
 		String query = "UPDATE Collection SET CollectionID=?, CollectionName=?, CollectionThumbnail=? WHERE CollectionID=?";
-		return jdbcTemplate.update(query, t.getCollectionID(), t.getCollectionName(),t.getCollectionThumbnail()) > 0;
+		try{
+			return jdbcTemplate.update(query, t.getCollectionID(), t.getCollectionName(), t.getCollectionThumbnail(), t.getCollectionID()) > 0;
+		}catch(EmptyResultDataAccessException ex){
+			return false;
 	}
+}
+	
 	public boolean DELETE(Collection t){
 		String query = "DELETE FROM Collection WHERE CollectionID = ?";
 		return jdbcTemplate.update(query, t.getCollectionID()) > 0;

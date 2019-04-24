@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"
     import="edu.fau.group3.util.DBUtil"
 	import="edu.fau.group3.model.User" 
+	import="edu.fau.group3.model.Collection" 
+	import="edu.fau.group3.model.Product" 
 	import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,19 +26,26 @@ if(UpdateType.equals("User")){
 	int userId = util.getUserByEmail(Email).getUserId();
 	User user = new User(userId, FirstName, LastName, Email, Password, AdminStatus, Phone);
 	if(util.updateUser(user)){
-		response.sendRedirect("admin.jsp?CreationSuccess=true");//UserAdded is true, redirect with success flag
-	}
-	else{
-		response.sendRedirect("admin.jsp?CreationSuccess=false");//UserAdded False, redirect with error flag
+		response.sendRedirect("admin.jsp?CreationSuccess=true");//updateUser is true, redirect with success flag
+	}else{
+		response.sendRedirect("admin.jsp?CreationSuccess=false");//updateUser False, redirect with error flag
 	}
 }
 
 if(UpdateType.equals("Collection")){
-//to be completed
+	String Name = request.getParameter("Name");
+	String thumbnail = request.getParameter("thumbnail");
+	int ID = Integer.parseInt(request.getParameter("ID"));
+	Collection collection = new Collection(ID, Name, thumbnail);
+	if(util.updateCollection(collection)){
+		response.sendRedirect("admin.jsp?CreationSuccess=true");//updateCollection is true, redirect with success flag
+	}else{
+			response.sendRedirect("admin.jsp?CreationSuccess=false");//updateCollection False, redirect with error flag
+	}
 }
 if(UpdateType.equals("Product")){
-
-//to be completed
+	
+	//to be completed
 }
 
 //the delete page needs to be added also
