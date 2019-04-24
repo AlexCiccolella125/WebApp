@@ -34,7 +34,7 @@
 			response.sendRedirect("index.jsp?CreationSuccess=false");//returns a failure if email exists
 		}
 		else{//if email does not exist, continue
-			boolean UserAdded = util.createUser(signupUser);//attempts to create user
+			boolean UserAdded = DBUtil.createUser(signupUser);//attempts to create user
 			if (UserAdded){
 				response.sendRedirect("index.jsp?CreationSuccess=true");//UserAdded is true, redirect with success flag
 			}
@@ -101,5 +101,6 @@
 	
 	
 %>
+
 </body>
 </html>

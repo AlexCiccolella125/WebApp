@@ -78,12 +78,13 @@
 				out.print("signout.jsp");
 				%>"><%
 				out.print("Sign out");
-				} %>
-		</a>
-		<%User user = util.getUserById(uid);
-		if(user.getAdminStatus()){%>
+				User user = util.getUserById(uid);
+				if(user.getAdminStatus()){%>
 				<a href="admin.jsp">Admin</a>
-				<%} %>
+				<%}
+			} %>
+		</a>
+		
 		
 	</div>
 </body>

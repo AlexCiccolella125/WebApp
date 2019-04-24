@@ -18,7 +18,6 @@
 	String SKU = request.getParameter("ProductSKU");
 	Product product = util.GetProductBySKU(SKU);
 	ImageList images = util.getImagesByID(product.getImageListID());
-
 %>
 <fieldset>
 <form action = "Update.jsp?UpdateType=Product" method = "post">

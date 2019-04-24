@@ -31,6 +31,7 @@
 </head>
 <body>
 <jsp:include page="Banner.jsp" />
+<jsp:include page="Restricted.jsp" />
     <%
     DBUtil util = new DBUtil();
     %>
