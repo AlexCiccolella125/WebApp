@@ -8,9 +8,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="Admin.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Admin</title>
-<style>
+<!-- <style>
 
             h1 {
                 text-align: center;
@@ -27,10 +28,12 @@
                 padding: 10px;
 
 
-        </style>
+        </style> -->
 </head>
+
 <body>
 <jsp:include page="Banner.jsp" />
+<jsp:include page="Restricted.jsp" />
     <%
     DBUtil util = new DBUtil();
     %>
@@ -95,83 +98,86 @@
                 %>
                 </select>
 
-                <button class="OrderBtn">Submit</button>
+                <button type="submit">Submit</button>
 
             </form>
             </fieldset>
+            <form action="Upload.jsp?UploadType=User" method="post">
             <fieldset>
                 <h2>Add a New User</h2>
-                <p>
-                    <label>User First Name: </label>
-                    <input type="text" id="UserFN" required>
-                </p>
+                <h5 id="Info">
+						First Name: <input type="txt" value="" name="FirstName" required>
+					</h5>
+					<h5 id="Info">
+						Last Name: <input type="txt" value="" name="LastName">
+					</h5>
+					<h5 id="Info">
+						E-mail: <input type="email" value="" name="Email">
+					</h5>
+					<h5 id="Info">
+						Address: <input type="txt" value="" name="Address">
+					</h5>
+					<h5 id="Info">
+						Password: <input type="password" value="" name="Password">
+					</h5>
+					<h5 id="Info">
+						PhoneNumber: <input type="tel" value="" name="PhoneNumber">
+					</h5>
+					<h5 id="Info">
+						AdminStatus: 
+							<select name="AdminStatus">
+							<option value="true" >yes</option>
+							<option value="false">no</option>
+							</select>
+					</h5>
+					<input id="button" type="Submit" Value="Sign Up">
 
-                <p>
-                    <label>User Last Name: </label>
-                    <input type="text" id="UserLN" required>
-                </p>
-
-                <p>
-                    <label>User E-mail: </label>
-                    <input type="text" id="UserEmail">
-                </p>
-                <p>
-                    <label>User Password: </label>
-                    <input type="text" id="UserPass" required>
-                </p>
-
-                <p>
-                    <label>User Phone: </label>
-                    <input type="phone" id="UserPhone" required>
-                </p>
-                <input type="checkbox" name="admin" value="true"> Select if User is Admin<br>
-                
-                <br>
-                <button class="OrderBtn">Submit</button>
-
-            </fieldset><fieldset>
+            </fieldset></form>
+       <form action="Upload.jsp?UploadType=Collection" method="post">
+            <fieldset>
                 <div>
                     <h2>Add a New Collection</h2>
 
                     <p>
                         <label>Collection Name: </label>
-                        <input type="text" id="CollName" required>
+                        <input type="text" name="CollectionName" required>
                     </p>
-
                     <p>
                         <label>CollectionThumbnail: </label>
-                        <input type="text" id="CollThmbnl">
+                        <input type="text" name="CollectionThumbnail">
                     </p>
-                    <button class="SubmitBtn">Submit</button>
+                    <input id="button" type="Submit">
                 </div>
             </fieldset>
+        </form>
             
         </div>
         <div class="column">
-            
-            
+            <form action="modifycollectionsform.jsp" method="post">
             <fieldset>
                 <h2>Search for existing Collections</h2>
-                <input type="text" placeholder="Search..">
-                <button class="SubmitBtn" onclick="Search()">Search</button>
-<!--                    Search function needs to be created/added-->
-
+                <input type="text" name="CollectionName" placeholder="Search CollectionName..">
+                <input id="button" type="Submit" Value="Search">
+		<!--Search function needs to be created/added-->
             </fieldset>
+            </form>
+            
+            <form action="modifyproductsform.jsp" method="post">
             <fieldset>
                 <h2>Search for existing Products</h2>
-                <input type="text" placeholder="Search..">
-                <button class="SubmitBtn" onclick="Search()">Search</button>
-                
-
-            </fieldset><fieldset>
-                <h2>Modify Existing Users</h2>
-                <a href="modifyusersform.jsp">See All Users</a>
-                <!--                    Search function needs to be created/added-->
-
+                <input type="text" name="ProductSKU" placeholder="Search ProductSKU..">
+                <input id="button" type="Submit" Value="Search">
             </fieldset>
+            </form>
+            
+            <form action="modifyusersform.jsp" method="post">
+            <fieldset>
+                <h2>Search for Existing Users</h2>
+                <input type="text" name="UserEmail" placeholder="Search Emails.."> 
+                <input id="button" type="Submit" Value="Search">
+            </fieldset>
+            </form>
         </div>
-
     </div>
-
 </body>
 </html>

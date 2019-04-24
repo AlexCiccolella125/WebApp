@@ -49,8 +49,8 @@ public class UserService extends BaseService<User>{
 	
 	@Override
 	public boolean update(User t) {
-		String query = "UPDATE User SET UserID=?, UserAdmin=?, UserFirstName=?, UserLastName=?, UserEmail=?, UserPassword=?, UserPhone=?, WHERE UserID=?";
-		return jdbcTemplate.update(query, t.getUserId(), t.getAdminStatus(), t.getFirstName(), t.getLastName(), t.getEmail(), t.getPassword(), t.getPhone()) > 0;
+		String query = "UPDATE User SET UserID=?, UserAdmin=?, UserFirstName=?, UserLastName=?, UserEmail=?, UserPassword=?, UserPhone=? WHERE UserID=?";
+		return jdbcTemplate.update(query, t.getUserId(), t.getAdminStatus(), t.getFirstName(), t.getLastName(), t.getEmail(), t.getPassword(), t.getPhone(), t.getUserId()) > 0;
 	}
 	public boolean DELETE(User t){
 		String query = "DELETE FROM User WHERE UserID = ?";

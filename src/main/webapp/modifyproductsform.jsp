@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import="edu.fau.group3.util.DBUtil"
+	import="edu.fau.group3.model.Product" 
+	import="edu.fau.group3.model.ImageList" 
+	import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,20 +11,31 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%
+	
+	DBUtil util = new DBUtil();
+	String SKU = request.getParameter("ProductSKU");
+	Product product = util.GetProductBySKU(SKU);
+	ImageList images = util.getImagesByID(product.getImageListID());
+%>
 <fieldset>
-<form action = "ValUpload.jsp?UploadType=User" method = "post">
-Product Name: <input type="text"  value="" name="ProductName">
-Product Price: <input type="text" value="" name="ProductPrice">
-Product Id: <input type="text" value="" name=" ProductID">
-Product Description: <input type="text" value="" name=" ProductDescr">
-Product SKU: <input type="text" value="" name=" ProductSKU">
-Product Inventory: <input type="text" value="" name=" ProductInven">
-Image List Id: <input type="text" value="" name="ImgListID">
-Collection Id: <input type="text" value="" name="CollectID">
-<input type="button" value="submit">
+<form action = "Update.jsp?UpdateType=Product" method = "post">
+	Product Name: <input type="text"  value="<%=product.getProductName() %>" name="ProductName">
+	<br>Product Price: <input type="text" value="<%=product.getProductPrice() %>" name="ProductPrice">
+	<br>Product Description: <input type="text" value="<%=product.getProductDescription() %>" name="ProductDescription">
+	<br>Product SKU: <input type="text" value="<%=product.getProductSKU() %>" name="ProductSKU">
+	<br>Product Inventory: <input type="text" value="<%=product.getProductInventory() %>" name="ProductInventory">
+	<br>Thumbnail: <input type="text" value="<%=images.getThumbnail()%>" name="ImageThumbnail">
+	<br>Image1: <input type="text" value="<%=images.getImage1()%>" name="Image1">
+	<br>Image2: <input type="text" value="<%=images.getImage2()%>" name="Image2">
+	<br>Image3: <input type="text" value="<%=images.getImage3()%>" name="Image3">
+	<br>Image4: <input type="text" value="<%=images.getImage4()%>" name="Image4">
+	<input type="hidden" value="<%=product.getCollectionID() %>" name="CollectionID">
+	<br><input type="hidden" value="<%=product.getProductID()%>" name="productID"/>
+	<input type="hidden" value="<%=images.getImageListID()%>" name="imagelistID"/>
+	<input type=submit value="submit">
 </form>
 </fieldset>
-<input type="button" value="submit">
-<input type="button" value="delete">
 </body>
 </html>

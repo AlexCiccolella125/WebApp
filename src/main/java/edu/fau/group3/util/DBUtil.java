@@ -32,6 +32,11 @@ public class DBUtil {
 	public static User getUserById(int id) {
 		return USER_SERVICE.getById(id);
 	}
+	
+	
+	public static User getUserByEmail(String Email) {
+		return USER_SERVICE.getByName(Email);
+	}
 
 	public static boolean createUser(User object) {
 		return USER_SERVICE.create(object);
@@ -132,6 +137,18 @@ public class DBUtil {
 			return false;//The collection does not exist
 		}
 	}
+	public static boolean checkIfCollectionNameExists(String name){
+		Collection collection = COLLECTION_SERVICE.getByName(name);
+		if(collection != null) {
+			return true;//The collection does exist
+		}
+		else {
+			return false;//The collection does not exist
+		}
+	}
+	public static Collection getCollectionByName(String name){
+		return COLLECTION_SERVICE.getByName(name);
+	}
 
 	
 	
@@ -158,8 +175,8 @@ public class DBUtil {
 	public static List<Product> getProductsByCollectionId(int id) {
 		return PRODUCT_SERVICE.getSortedList(id);
 	}
-	public static boolean checkIfProductExists(String name){
-		Product product = PRODUCT_SERVICE.getByName(name);
+	public static boolean checkIfProductExists(String SKU){
+		Product product = PRODUCT_SERVICE.getByName(SKU);
 		if(product != null) {
 			return true;//The product does exist
 		}
@@ -167,4 +184,7 @@ public class DBUtil {
 			return false;//The product does not exist
 		}
 	}
+	public static Product GetProductBySKU(String SKU){
+		return PRODUCT_SERVICE.getByName(SKU);
+		}
 }

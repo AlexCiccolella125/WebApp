@@ -5,6 +5,7 @@
     import = "edu.fau.group3.model.User"
     import = "edu.fau.group3.model.ImageList"
     import = "edu.fau.group3.model.Product"
+    import = "edu.fau.group3.model.Collection"
     import = "java.util.List"
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,7 +22,7 @@
 	
 	if (UploadType.equals("User")){
 		//creates new user
-		boolean adminStatus = false;
+		boolean adminStatus = Boolean.parseBoolean(request.getParameter("AdminStatus"));
 		Long phone = Long.parseLong(request.getParameter("PhoneNumber"));
 		String firstName = request.getParameter("FirstName");
 		String lastName = request.getParameter("LastName");
@@ -33,7 +34,7 @@
 			response.sendRedirect("index.jsp?CreationSuccess=false");//returns a failure if email exists
 		}
 		else{//if email does not exist, continue
-			boolean UserAdded = util.createUser(signupUser);//attempts to create user
+			boolean UserAdded = DBUtil.createUser(signupUser);//attempts to create user
 			if (UserAdded){
 				response.sendRedirect("index.jsp?CreationSuccess=true");//UserAdded is true, redirect with success flag
 			}
@@ -71,7 +72,7 @@
 		}
 		
 		Product product = new Product(IDPlaceholder,productName, productPrice, productDescription,productSKU,productInventory,imageListID, collectionID);
-		boolean productExist = DBUtil.checkIfProductExists(productName);
+		boolean productExist = DBUtil.checkIfProductExists(productSKU);
 		if(productExist){
 			response.sendRedirect("admin.jsp?CreationSuccess=false");//productAdded False, redirect with error flag
 		}
@@ -84,11 +85,22 @@
 				response.sendRedirect("admin.jsp?CreationSuccess=false");//productAdded False, redirect with error flag
 			}
 		}
+	}
+	if(UploadType.equals("Collection")){
+		//needs to be completed
+		String CollectionName = request.getParameter("CollectionName");
+		String CollectionThumbnail = request.getParameter("CollectionThumbnail");
+		Collection collection = new Collection(0, CollectionName, CollectionThumbnail);
+		if(util.createCollection(collection)){
+			response.sendRedirect("admin.jsp?CreationSuccess=true");//createCollection is true, redirect with success flag
+		}
+		else{
+			response.sendRedirect("admin.jsp?CreationSuccess=false");//createCollection False, redirect with error flag
+		}
+	}
 	
-	}
-	if(UploadType.equals("ModifyUser")){
-		out.print("continue");
-	}
-	%>
+	
+%>
+
 </body>
 </html>

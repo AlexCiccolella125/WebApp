@@ -25,17 +25,17 @@ public class ProductService extends BaseService<Product>{
 	public Product getById(int id){
 		String query ="SELECT * FROM Product WHERE ProductID = ?";
 		try{
-		return jdbcTemplate.queryForObject(query, new Object[] {id}, new ProductMapper());
+			return jdbcTemplate.queryForObject(query, new Object[] {id}, new ProductMapper());
 		}catch (EmptyResultDataAccessException ex){
-				return null;
+			return null;
 		}
 	}	
 
 	@Override
-	public Product getByName(String name) {
-		String query = "SELECT * FROM Product where ProductName =?";
+	public Product getByName(String SKU) {
+		String query = "SELECT * FROM Product where ProductSKU =?";
 		try{
-			return jdbcTemplate.queryForObject(query, new Object[] {name}, new ProductMapper());
+			return jdbcTemplate.queryForObject(query, new Object[] {SKU}, new ProductMapper());
 		}catch(EmptyResultDataAccessException ex){
 			return null;
 		}
@@ -52,18 +52,30 @@ public class ProductService extends BaseService<Product>{
 	}
 	@Override
 	public boolean create(Product t) {
-		String query = "INSERT INTO Product(ProductID, ProductName, ProductPrice, ProductDescription, ProductSKU, ProductInventory, ImageListID, CollectionID) value (?,?,?,?,?,?,?,?)";
-		return jdbcTemplate.update(query, t.getProductID(), t.getProductName(),t.getProductPrice(),t.getProductDescription(), t.getProductSKU(), t.getProductInventory(), t.getImageListID(), t.getCollectionID()) > 0;
+		String query = "INSERT INTO Product(ProductName, ProductPrice, ProductDescription, ProductSKU, ProductInventory, ImageListID, CollectionID) value (?,?,?,?,?,?,?)";
+		try {
+			return jdbcTemplate.update(query, t.getProductName(),t.getProductPrice(),t.getProductDescription(), t.getProductSKU(), t.getProductInventory(), t.getImageListID(), t.getCollectionID()) > 0;
+		}catch(EmptyResultDataAccessException ex){
+			return false;
+		}
 	}
 	
 	@Override
 	public boolean update(Product t) {
-		String query = "UPDATE Product SET ProductID=?, ProductName=?, ProductPrice=?, ProductDescription=?, ProductSKU=?, ProductInventory=?, ImageListID=?, CollectionID=?, WHERE ProductID=?";
-		return jdbcTemplate.update(query, t.getProductID(), t.getProductName(),t.getProductPrice(),t.getProductDescription(), t.getProductSKU(), t.getProductInventory(), t.getImageListID(), t.getCollectionID()) > 0;
+		String query = "UPDATE Product SET ProductID=?, ProductName=?, ProductPrice=?, ProductDescription=?, ProductSKU=?, ProductInventory=?, ImageListID=?, CollectionID=? WHERE ProductID=?";
+		try{
+			return jdbcTemplate.update(query, t.getProductID(), t.getProductName(),t.getProductPrice(),t.getProductDescription(), t.getProductSKU(), t.getProductInventory(), t.getImageListID(), t.getCollectionID(), t.getProductID()) > 0;
+		}catch(EmptyResultDataAccessException ex){
+			return false;
+		}
 	}
 	public boolean DELETE(Product t){
 		String query = "DELETE FROM Product WHERE ProductID = ?";
-		return jdbcTemplate.update(query, t.getProductID()) > 0;
+		try{
+			return jdbcTemplate.update(query, t.getProductID()) > 0;
+		}catch(EmptyResultDataAccessException ex){
+			return false;
+		}
 	}
 
 	

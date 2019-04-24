@@ -44,7 +44,7 @@ public class ImageListService extends BaseService<ImageList>{
 	
 	@Override
 	public boolean update(ImageList t) {
-		String query = "UPDATE ImageList SET ImageListID=?, Thumbnail=?, Image1=?, Image2=?, Image3=?, Image4=?, WHERE ImageListID=?";
+		String query = "UPDATE ImageList SET ImageListID=?, Thumbnail=?, Image1=?, Image2=?, Image3=?, Image4=? WHERE ImageListID=?";
 		return jdbcTemplate.update(query, t.getImageListID(), t.getThumbnail(), t.getImage1(), t.getImage2(), t.getImage3(), t.getImage4(), t.getImageListID()) > 0;
 	}
 	@Override

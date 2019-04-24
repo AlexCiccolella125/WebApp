@@ -11,52 +11,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Please enter the following information to make an account</h1>
-	<form action="">
-		First Name:<input type="text" value=""><br> 
-		Last Name:<input type="text" value=""> <br> 
-		Email:<input type="text" value=""><br> 
-		Password:<input type="text" value=""> <br> 
-		Phone:<input type="text" value=""><br> 
-	</form>
-	<input type="button" value="submit">
-	<input type="button" value="delete">
+
+	<form action="Update.jsp?UpdateType=User" method="post">
 	
-	<form action = Upload.jsp?UploadType=ModifyUser" method = "POST" target = "_blank">
-	<table id=userTable>
-		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Last name</th>
-			<th>Email</th>
-			<th>Password</th>
-			<th>Phone</th>
-			<th>AdminStatus</th>
-		</tr>
+		
 	<%
 	DBUtil util = new DBUtil();
-	List<User> userList = util.getAllUsers();
-	for (int index=0; index < userList.size(); index++){ 
-		String AdminStatus = null;
-	if(userList.get(index).getAdminStatus()){
-		AdminStatus = "checked = checked";
+	String Email = request.getParameter("UserEmail");
+	User user = util.getUserByEmail(Email);
+	
+	String AdminStatus = null;
+	int ID = user.getUserId();
+	if(user.getAdminStatus()){
+		AdminStatus = "checked = true";
 	}
 	%>
-		<tr>
-			<td><%=userList.get(index).getUserId()%></td> 
-			<td><%=userList.get(index).getFirstName()%></td>
-			<td><%=userList.get(index).getLastName()%></td>
-			<td><%=userList.get(index).getEmail()%></td>
-			<td><%=userList.get(index).getPassword()%></td>
-			<td><%=userList.get(index).getPhone()%></td>
-			<td><%=userList.get(index).getAdminStatus()%></td>
-			<td> <input type = "checkbox" name = "AdminStatus" <%=AdminStatus %> /> AdminStatus<td>
-		    <td> <input type = "submit" value = "Delete" /></td>
-		    <td> <input type = "submit" value = "Update" /></td>
-			<%}%>
-		</tr>
-		</table>
-		</form>
 		
+	 Email<input name="Email" type="email" value="<%=user.getEmail()%>"> 
+	 <br>Name<input name="FirstName" type="text" value="<%=user.getFirstName()%>"> 
+	 <br>Last name <input name="LastName" type="text" value="<%=user.getLastName()%>"> 
+	 <br>Password<input name="Password" type="password" value="<%=user.getPassword()%>"> 
+	 <br>Phone<input name="Phone" type="tel" value="<%=user.getPhone()%>"> 
+	 <br><input name="AdminStatus" type = "checkbox" value="true" <%=AdminStatus %> /> AdminStatus 
+     <br><input type="submit" value="Update">
+<!-- 		  <input type = "submit" value = "Delete" />  -->
+
+
+
+</form>
 </body>
 </html>
