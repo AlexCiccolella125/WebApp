@@ -7,15 +7,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Modify Collections</title>
 </head>
 <body>
+
+<jsp:include page="Restricted.jsp" />
 <form action="Update.jsp?UpdateType=Collection" method="post">
 	<%
-	DBUtil util = new DBUtil();
 	String name = request.getParameter("CollectionName");
-	Collection collection = util.getCollectionByName(name);
-	
+	if(DBUtil.checkIfCollectionNameExists(name) != true){
+		response.sendRedirect("admin.jsp?DeleteSuccess=false");
+	}else{
+	Collection collection = DBUtil.getCollectionByName(name);
 	int ID = collection.getCollectionID();
 	%>
 	<br><input name="ID" type="hidden" value="<%=collection.getCollectionID() %>"  />
@@ -23,5 +26,10 @@
 	<br>Name<input name="thumbnail" type="text" value="<%=collection.getCollectionThumbnail()%>">
 	<br><input type="submit" value="Update">
 </form>	
+	<form action="Delete.jsp?Type=Collection&Name=<%=name%>" method="post">
+	<button type="submit"> Delete Collection</button>
+	</form>
+	
+<%} %>
 </body>
 </html>

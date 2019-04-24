@@ -3,7 +3,6 @@ package edu.fau.group3.util;
 import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.dao.DuplicateKeyException;
 import edu.fau.group3.configuration.SpringJdbcConfig;
 import edu.fau.group3.model.User;
 import edu.fau.group3.model.ImageList;

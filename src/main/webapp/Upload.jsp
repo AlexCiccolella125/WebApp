@@ -15,8 +15,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="Restricted.jsp" />
 	<% 
-	DBUtil util = new DBUtil();
 	String UploadType = request.getParameter("UploadType");
 	int IDPlaceholder = -1;//this is a placeholder because most objects in model need an ID
 	
@@ -37,8 +37,7 @@
 			boolean UserAdded = DBUtil.createUser(signupUser);//attempts to create user
 			if (UserAdded){
 				response.sendRedirect("index.jsp?CreationSuccess=true");//UserAdded is true, redirect with success flag
-			}
-			else{
+			}else{
 				response.sendRedirect("index.jsp?CreationSuccess=false");//UserAdded False, redirect with error flag
 			}
 		}
@@ -53,7 +52,7 @@
 		int collectionID = Integer.parseInt(request.getParameter("CollectionID"));
 		int imageListID = Integer.parseInt(request.getParameter("ImageListID"));
 		String imageThumbnail = null;
-		if(util.checkIfImageListExists(imageListID) == false){//Create new imageList in database First if it does not exist already
+		if(DBUtil.checkIfImageListExists(imageListID) == false){//Create new imageList in database First if it does not exist already
 			
 			if(request.getParameter("ImageThumbnail") == null){
 				imageThumbnail = "Missing.jpeg";
@@ -68,7 +67,7 @@
 			String image3 = request.getParameter("Image3");
 			String image4 = request.getParameter("Image4");
 			ImageList images = new ImageList(imageListID, imageThumbnail,image1, image2, image3, image4);
-			util.createImageList(images);
+			DBUtil.createImageList(images);
 		}
 		
 		Product product = new Product(IDPlaceholder,productName, productPrice, productDescription,productSKU,productInventory,imageListID, collectionID);
@@ -77,7 +76,7 @@
 			response.sendRedirect("admin.jsp?CreationSuccess=false");//productAdded False, redirect with error flag
 		}
 		else{
-			boolean ProductAdded = util.createProduct(product);//attempts to make new product
+			boolean ProductAdded = DBUtil.createProduct(product);//attempts to make new product
 			if (ProductAdded){
 				response.sendRedirect("admin.jsp?CreationSuccess=true");//productAdded is true, redirect with success flag
 			}
@@ -91,7 +90,8 @@
 		String CollectionName = request.getParameter("CollectionName");
 		String CollectionThumbnail = request.getParameter("CollectionThumbnail");
 		Collection collection = new Collection(0, CollectionName, CollectionThumbnail);
-		if(util.createCollection(collection)){
+
+		if(DBUtil.createCollection(collection)){
 			response.sendRedirect("admin.jsp?CreationSuccess=true");//createCollection is true, redirect with success flag
 		}
 		else{

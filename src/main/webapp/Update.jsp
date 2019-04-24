@@ -13,6 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<jsp:include page="Restricted.jsp" />
 <%
 String UpdateType = request.getParameter("UpdateType");
 DBUtil util = new DBUtil();
