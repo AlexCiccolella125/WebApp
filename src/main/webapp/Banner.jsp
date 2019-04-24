@@ -17,7 +17,10 @@
 <body>
 
 
-	<%// AUTHENTICATION CODE
+	<%//PARAMETERS
+	DBUtil util = new DBUtil();
+	
+	// AUTHENTICATION CODE
 	if(request.getParameter("CreationSuccess") != null){
 		if(request.getParameter("CreationSuccess").equals("true")){
 			out.print("User Creation Successful<BR>");
@@ -76,7 +79,11 @@
 				%>"><%
 				out.print("Sign out");
 				} %>
-			</a>
+		</a>
+		<%User user = util.getUserById(uid);
+		if(user.getAdminStatus()){%>
+				<a href="admin.jsp">Admin</a>
+				<%} %>
 		
 	</div>
 </body>

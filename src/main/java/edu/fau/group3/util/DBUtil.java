@@ -33,6 +33,7 @@ public class DBUtil {
 		return USER_SERVICE.getById(id);
 	}
 	
+	
 	public static User getUserByEmail(String Email) {
 		return USER_SERVICE.getByName(Email);
 	}
@@ -129,6 +130,15 @@ public class DBUtil {
 	}
 	public static boolean checkIfCollectionExists(int Id){
 		Collection collection = COLLECTION_SERVICE.getById(Id);
+		if(collection != null) {
+			return true;//The collection does exist
+		}
+		else {
+			return false;//The collection does not exist
+		}
+	}
+	public static boolean checkIfCollectionNameExists(String name){
+		Collection collection = COLLECTION_SERVICE.getByName(name);
 		if(collection != null) {
 			return true;//The collection does exist
 		}

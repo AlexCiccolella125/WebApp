@@ -3,7 +3,8 @@
     import="edu.fau.group3.util.DBUtil"
 	import="edu.fau.group3.model.User" 
 	import="edu.fau.group3.model.Collection" 
-	import="edu.fau.group3.model.Product" 
+	import="edu.fau.group3.model.Product"
+	import="edu.fau.group3.model.ImageList"
 	import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -22,7 +23,7 @@ if(UpdateType.equals("User")){
 	String LastName = request.getParameter("LastName");
 	String Password = request.getParameter("Password");
 	Long Phone = Long.parseLong(request.getParameter("Phone"));
-	boolean AdminStatus = true; //Boolean.parseBoolean(request.getParameter("AdminStatus"));
+	boolean AdminStatus = Boolean.parseBoolean(request.getParameter("AdminStatus"));
 	int userId = util.getUserByEmail(Email).getUserId();
 	User user = new User(userId, FirstName, LastName, Email, Password, AdminStatus, Phone);
 	if(util.updateUser(user)){
@@ -45,7 +46,35 @@ if(UpdateType.equals("Collection")){
 }
 if(UpdateType.equals("Product")){
 	
-	//to be completed
+	Product product = new Product(
+		Integer.parseInt(request.getParameter("productID")), 
+		 request.getParameter("ProductName"), 
+		 Double.parseDouble(request.getParameter("ProductPrice")), 
+		 request.getParameter("ProductDescription"), 
+		 request.getParameter("ProductSKU"),
+		 Integer.parseInt(request.getParameter("ProductInventory")), 
+		 Integer.parseInt(request.getParameter("imagelistID")),
+		 Integer.parseInt(request.getParameter("CollectionID"))
+	 );
+	ImageList imagelist = new ImageList(
+		Integer.parseInt(request.getParameter("imagelistID")),  
+		request.getParameter("ImageThumbnail"), 
+		request.getParameter("Image1"), 
+		request.getParameter("Image2"), 
+		request.getParameter("Image3"), 
+		request.getParameter("Image4")
+	);
+	
+	if(util.updateProduct(product)){
+		//second layer to update imagelist if updateProduct succeeds
+		if(util.updateImageList(imagelist)){
+			response.sendRedirect("admin.jsp?CreationSuccess=true");//updateImageList is true, redirect with success flag
+		}else{
+			response.sendRedirect("admin.jsp?CreationSuccess=false");//updateImageList False, redirect with error flag
+		}
+	}else{
+			response.sendRedirect("admin.jsp?CreationSuccess=false");//updateProduct False, redirect with error flag
+	}
 }
 
 //the delete page needs to be added also

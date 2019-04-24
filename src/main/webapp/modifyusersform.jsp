@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<form action="Update.jsp/UpdateType=User" method="post">
+	<form action="Update.jsp?UpdateType=User" method="post">
 	
 		
 	<%

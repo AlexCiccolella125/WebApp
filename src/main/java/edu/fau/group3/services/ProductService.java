@@ -62,9 +62,9 @@ public class ProductService extends BaseService<Product>{
 	
 	@Override
 	public boolean update(Product t) {
-		String query = "UPDATE Product SET ProductID=?, ProductName=?, ProductPrice=?, ProductDescription=?, ProductSKU=?, ProductInventory=?, ImageListID=?, CollectionID=?, WHERE ProductID=?";
+		String query = "UPDATE Product SET ProductID=?, ProductName=?, ProductPrice=?, ProductDescription=?, ProductSKU=?, ProductInventory=?, ImageListID=?, CollectionID=? WHERE ProductID=?";
 		try{
-			return jdbcTemplate.update(query, t.getProductID(), t.getProductName(),t.getProductPrice(),t.getProductDescription(), t.getProductSKU(), t.getProductInventory(), t.getImageListID(), t.getCollectionID()) > 0;
+			return jdbcTemplate.update(query, t.getProductID(), t.getProductName(),t.getProductPrice(),t.getProductDescription(), t.getProductSKU(), t.getProductInventory(), t.getImageListID(), t.getCollectionID(), t.getProductID()) > 0;
 		}catch(EmptyResultDataAccessException ex){
 			return false;
 		}

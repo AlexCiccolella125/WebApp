@@ -120,6 +120,13 @@
 					<h5 id="Info">
 						PhoneNumber: <input type="tel" value="" name="PhoneNumber">
 					</h5>
+					<h5 id="Info">
+						AdminStatus: 
+							<select name="AdminStatus">
+							<option value="true" >yes</option>
+							<option value="false">no</option>
+							</select>
+					</h5>
 					<input id="button" type="Submit" Value="Sign Up">
 
             </fieldset></form>
@@ -130,11 +137,11 @@
 
                     <p>
                         <label>Collection Name: </label>
-                        <input type="text" id="CollectionName" required>
+                        <input type="text" name="CollectionName" required>
                     </p>
                     <p>
                         <label>CollectionThumbnail: </label>
-                        <input type="text" id="CollectionThumbnail">
+                        <input type="text" name="CollectionThumbnail">
                     </p>
                     <input id="button" type="Submit">
                 </div>

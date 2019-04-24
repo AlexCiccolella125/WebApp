@@ -43,10 +43,14 @@ public class CollectionService extends BaseService<Collection>{
 		
 	@Override
 	public boolean create(Collection t) {
-		String query = "INSERT INTO Collection(CollectionID, CollectionName, CollectionThumbnail) value (?,?,?)";
-		return jdbcTemplate.update(query, t.getCollectionID(), t.getCollectionName(), t.getCollectionThumbnail()) > 0;
+		String query = "INSERT INTO Collection(CollectionName, CollectionThumbnail) value (?,?)";
+		try {
+			return  jdbcTemplate.update(query, t.getCollectionName(), t.getCollectionThumbnail()) > 0;
+		}catch(EmptyResultDataAccessException ex){
+			return false;
+		}
 	}
-	
+		
 	@Override
 	public boolean update(Collection t) {
 		String query = "UPDATE Collection SET CollectionID=?, CollectionName=?, CollectionThumbnail=? WHERE CollectionID=?";
