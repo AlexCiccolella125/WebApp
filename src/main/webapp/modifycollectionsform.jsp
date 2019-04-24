@@ -10,6 +10,7 @@
 <title>Modify Collections</title>
 </head>
 <body>
+
 <jsp:include page="Restricted.jsp" />
 <form action="Update.jsp?UpdateType=Collection" method="post">
 	<%

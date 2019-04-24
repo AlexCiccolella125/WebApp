@@ -90,6 +90,7 @@
 		String CollectionName = request.getParameter("CollectionName");
 		String CollectionThumbnail = request.getParameter("CollectionThumbnail");
 		Collection collection = new Collection(0, CollectionName, CollectionThumbnail);
+
 		if(DBUtil.createCollection(collection)){
 			response.sendRedirect("admin.jsp?CreationSuccess=true");//createCollection is true, redirect with success flag
 		}

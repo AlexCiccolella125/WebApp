@@ -8,9 +8,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="Admin.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>Admin</title>
-<style>
+<!-- <style>
 
             h1 {
                 text-align: center;
@@ -27,8 +28,9 @@
                 padding: 10px;
 
 
-        </style>
+        </style> -->
 </head>
+
 <body>
 <jsp:include page="Banner.jsp" />
 <jsp:include page="Restricted.jsp" />

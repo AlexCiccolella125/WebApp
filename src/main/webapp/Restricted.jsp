@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
 	pageEncoding="ISO-8859-1" import='edu.fau.group3.util.DBUtil'
 	import='edu.fau.group3.model.User'
 	%>
@@ -13,6 +14,7 @@
 	<!-- User must be logged in prior in the session to acces admin pages -->
 	<%// AUTHENTICATION CODE
 	Integer uid = (Integer)session.getAttribute("sessionID");
+
 	
 	if(uid == null){
 		response.sendRedirect("index.jsp");//not logged in

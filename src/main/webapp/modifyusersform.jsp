@@ -11,11 +11,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <jsp:include page="Restricted.jsp" />
 	<form action="Update.jsp?UpdateType=User" method="post">
 	
 		
 	<%
+
 	String Email = request.getParameter("UserEmail");
 	
 	User user = DBUtil.getUserByEmail(Email);
@@ -29,6 +31,7 @@
 	}
 	%>
 		
+
 	 Email<input name="Email" type="Email" value="<%=user.getEmail()%>"> 
 	 <br>Name<input name="FirstName" type="text" value="<%=user.getFirstName()%>"> 
 	 <br>Last name <input name="LastName" type="text" value="<%=user.getLastName()%>"> 
@@ -36,6 +39,7 @@
 	 <br>Phone<input name="Phone" type="tel" value="<%=user.getPhone()%>"> 
 	 <br><input name="AdminStatus" type = "checkbox" value="true" <%=AdminStatus %> /> AdminStatus 
      <br><input type="submit" value="Update">
+
 </form>
 <form action="Delete.jsp?Type=User&Email=<%=Email%>" method="post">
 	<button type="submit"> Delete User</button>

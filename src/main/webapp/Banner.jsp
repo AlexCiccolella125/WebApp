@@ -18,6 +18,8 @@
 
 
 	<%//PARAMETERS
+	DBUtil util = new DBUtil();
+
 	
 	// AUTHENTICATION CODE
 	if(request.getParameter("CreationSuccess") != null){
@@ -75,6 +77,7 @@
 				out.print("Login"); 
 			}else{
 				out.print("signout.jsp");
+
 				%>"><%="Sign out"%>
 				</a>
 			<% User user = DBUtil.getUserById(uid);
@@ -83,7 +86,7 @@
 				<%
 			}}
 		 %>
-		
+	
 		
 		
 	</div>
