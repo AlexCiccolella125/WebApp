@@ -23,8 +23,7 @@
 			<th>AdminStatus</th>
 		</tr>
 	<%
-	DBUtil util = new DBUtil();
-	List<User> userList = util.getAllUsers();
+	List<User> userList = DBUtil.getAllUsers();
 	for (int index=0; index < userList.size(); index++){ 
 		String AdminStatus = null;
 		int ID = userList.get(index).getUserId();
@@ -40,7 +39,7 @@
 			<td><input id="PH<%=ID%>" type="text" value="<%=userList.get(index).getPhone()%>"></td>
 			<td> <input type = "checkbox" name = "AdminStatus" <%=AdminStatus %> /> AdminStatus<td>
 		    <td> <button onclick="updateRow(<%= ID%>)">Update </button></td>
-<!-- 		<td> <input type = "submit" value = "Delete" /></td> -->
+			<!-- 		<td> <input type = "submit" value = "Delete" /></td> -->
 	<%}%>
 		</tr>
 		</table>

@@ -16,7 +16,6 @@
     </head>
     <body>
 <jsp:include page="Banner.jsp" />
-<br>
 <%
 //initialising parameters
 DBUtil util = new DBUtil();
@@ -40,11 +39,11 @@ for (int i=0; i<Product.size(); i++){
 		<!-- The formatting for this page needs editing, the image and text keep overlapping -->
         <div class="row">
             <div class="image">
-                <img src="<%out.print(Image.getThumbnail()); %>" class="pillow" style="width: 100%">
+                <img src="<%=Image.getThumbnail() %>" class="pillow" style="width: 100%">
                 <%--print the imageList image --%>
-                <br><br><br><br><br><br><br><br><br>
+                
                 <div class= "centered">
-                    <h1><% out.print(Product.get(i).getProductName()); %></h1><br />
+                    <h1><% out.print(Product.get(i).getProductName()); %></h1><br>
                     <h2><% out.print(Product.get(i).getProductPrice()); %></h2>
                 </div>
             </div>

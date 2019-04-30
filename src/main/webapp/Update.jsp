@@ -17,7 +17,6 @@
 <jsp:include page="Restricted.jsp" />
 <%
 String UpdateType = request.getParameter("UpdateType");
-DBUtil util = new DBUtil();
 
 if(UpdateType.equals("User")){
 	String Email = request.getParameter("Email");
@@ -26,9 +25,9 @@ if(UpdateType.equals("User")){
 	String Password = request.getParameter("Password");
 	Long Phone = Long.parseLong(request.getParameter("Phone"));
 	boolean AdminStatus = Boolean.parseBoolean(request.getParameter("AdminStatus"));
-	int userId = util.getUserByEmail(Email).getUserId();
+	int userId = DBUtil.getUserByEmail(Email).getUserId();
 	User user = new User(userId, FirstName, LastName, Email, Password, AdminStatus, Phone);
-	if(util.updateUser(user)){
+	if(DBUtil.updateUser(user)){
 		response.sendRedirect("admin.jsp?CreationSuccess=true");//updateUser is true, redirect with success flag
 	}else{
 		response.sendRedirect("admin.jsp?CreationSuccess=false");//updateUser False, redirect with error flag
@@ -40,7 +39,7 @@ if(UpdateType.equals("Collection")){
 	String thumbnail = request.getParameter("thumbnail");
 	int ID = Integer.parseInt(request.getParameter("ID"));
 	Collection collection = new Collection(ID, Name, thumbnail);
-	if(util.updateCollection(collection)){
+	if(DBUtil.updateCollection(collection)){
 		response.sendRedirect("admin.jsp?CreationSuccess=true");//updateCollection is true, redirect with success flag
 	}else{
 			response.sendRedirect("admin.jsp?CreationSuccess=false");//updateCollection False, redirect with error flag
@@ -67,9 +66,9 @@ if(UpdateType.equals("Product")){
 		request.getParameter("Image4")
 	);
 	
-	if(util.updateProduct(product)){
+	if(DBUtil.updateProduct(product)){
 		//second layer to update imagelist if updateProduct succeeds
-		if(util.updateImageList(imagelist)){
+		if(DBUtil.updateImageList(imagelist)){
 			response.sendRedirect("admin.jsp?CreationSuccess=true");//updateImageList is true, redirect with success flag
 		}else{
 			response.sendRedirect("admin.jsp?CreationSuccess=false");//updateImageList False, redirect with error flag

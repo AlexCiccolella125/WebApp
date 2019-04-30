@@ -29,6 +29,7 @@ fieldset {
 	display: inline-block;
 	vertical-align: middle;
 	margin-top: 5%;
+	background: white;
 }
 
 #signup {
@@ -52,6 +53,8 @@ fieldset {
 }
 }
 </style>
+<%-- calling the css --%>
+<link type= text/css rel="stylesheet" href="Login.css">
 <body>
 <jsp:include page="Banner.jsp" />
 	<div id="background">
@@ -62,9 +65,7 @@ fieldset {
 					<h4 id="Welcome">Welcome! Sign Up is needed to complete
 						purchases.</h4>
 
-					<h5 id="Info">
-						First Name: <input type="txt" value="" name="FirstName" required>
-					</h5>
+					<h5 id="Info">First Name: <input type="txt" value="" name="FirstName" required></h5>
 					<h5 id="Info">
 						Last Name: <input type="txt" value="" name="LastName">
 					</h5>

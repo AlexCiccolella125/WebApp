@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
-    
     import = "edu.fau.group3.util.DBUtil"
     import = "edu.fau.group3.model.User"
     import = "java.util.List"
-    
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -35,7 +33,7 @@
 						Password: <input type="text" value="" name="password">
 					</h5>
 					<input id="button" type="Submit" Value="Login">
-				<!-- </form> -->
+				</form>
 			</div>
 		</fieldset>
 	</div>
